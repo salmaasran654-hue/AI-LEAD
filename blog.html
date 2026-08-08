@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>المدونة - AI LEAD</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: #0B1120;
+      color: #FFFFFF;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    #particles-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      background: #0B1120;
+    }
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(37, 99, 235, 0.15);
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .logo {
+      font-size: 2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #2563EB, #8B5CF6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .logo span { font-weight: 300; -webkit-text-fill-color: #94A3B8; }
+    .nav a {
+      color: #94A3B8;
+      text-decoration: none;
+      margin-right: 15px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: 0.3s;
+    }
+    .nav a:hover { color: #38BDF8; }
+    .page-title {
+      text-align: center;
+      padding: 50px 0 20px;
+    }
+    .page-title h1 {
+      font-size: 3rem;
+      font-weight: 800;
+    }
+    .page-title h1 span {
+      background: linear-gradient(135deg, #2563EB, #8B5CF6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .page-title p {
+      color: #94A3B8;
+      font-size: 1.1rem;
+      margin-top: 10px;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+      padding: 20px 0 50px;
+    }
+    .post-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(37, 99, 235, 0.1);
+      border-radius: 24px;
+      padding: 30px 24px;
+      transition: 0.3s;
+    }
+    .post-card:hover {
+      border-color: #2563EB;
+      transform: translateY(-6px);
+      box-shadow: 0 0 40px rgba(37, 99, 235, 0.06);
+    }
+    .post-card .badge {
+      display: inline-block;
+      background: rgba(37, 99, 235, 0.15);
+      color: #38BDF8;
+      padding: 4px 14px;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      margin-bottom: 10px;
+    }
+    .post-card h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .post-card .meta {
+      color: #94A3B8;
+      font-size: 0.85rem;
+      margin-bottom: 12px;
+    }
+    .post-card p {
+      color: #94A3B8;
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+    .post-card .btn-outline {
+      display: inline-block;
+      background: transparent;
+      border: 1px solid #2563EB;
+      color: #38BDF8;
+      padding: 8px 24px;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .post-card .btn-outline:hover {
+      background: #2563EB;
+      color: white;
+      box-shadow: 0 0 30px rgba(37, 99, 235, 0.2);
+    }
+    .footer {
+      border-top: 1px solid rgba(37, 99, 235, 0.08);
+      padding: 25px 0;
+      text-align: center;
+      color: #64748B;
+      font-size: 0.9rem;
+    }
+    .footer span { color: #38BDF8; }
+    @media (max-width: 700px) {
+      .header { flex-direction: column; align-items: center; gap: 12px; }
+      .nav { justify-content: center; flex-wrap: wrap; }
+      .nav a { margin: 0 8px; }
+      .page-title h1 { font-size: 2.2rem; }
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="particles-canvas"></canvas>
+
+  <div class="container">
+
+    <div class="header">
+      <div class="logo">AI <span>LEAD</span></div>
+      <div class="nav">
+        <a href="index.html">الرئيسية</a>
+        <a href="courses.html">الدورات</a>
+        <a href="videos.html">الموارد</a>
+        <a href="analyzer.html">تحليل الموقع</a>
+        <a href="blog.html">المدونة</a>
+        <a href="about.html">من نحن</a>
+        <a href="contact.html">تواصل</a>
+        <a href="login.html">تسجيل الدخول</a>
+      </div>
+    </div>
+
+    <div class="page-title">
+      <h1>📝 <span>مدونة الذكاء الاصطناعي</span></h1>
+      <p>أحدث المقالات والأخبار في عالم الذكاء الاصطناعي</p>
+    </div>
+
+    <div class="grid-2">
+      <div class="post-card">
+        <span class="badge">📌 جديد</span>
+        <h3>ما هو الذكاء الاصطناعي؟ دليل المبتدئين</h3>
+        <div class="meta">📅 8 أغسطس 2026 · ⏱️ 5 دقائق قراءة</div>
+        <p>الذكاء الاصطناعي هو محاكاة العمليات الذكية البشرية بواسطة الآلات، ويشمل التعلم والاستدلال والتصحيح الذاتي. في هذا المقال نستعرض الأساسيات.</p>
+        <a href="#" class="btn-outline">اقرأ المزيد</a>
+      </div>
+
+      <div class="post-card">
+        <span class="badge">📌 جديد</span>
+        <h3>كيف تبدأ في تعلم الذكاء الاصطناعي من الصفر</h3>
+        <div class="meta">📅 7 أغسطس 2026 · ⏱️ 7 دقائق قراءة</div>
+        <p>دليل شامل للمبتدئين لتعلم الذكاء الاصطناعي، من المصادر المجانية إلى المشاريع العملية التي تمكنك من التطبيق الفعلي.</p>
+        <a href="#" class="btn-outline">اقرأ المزيد</a>
+      </div>
+
+      <div class="post-card">
+        <span class="badge">📌 مميز</span>
+        <h3>أفضل 10 أدوات ذكاء اصطناعي في 2026</h3>
+        <div class="meta">📅 6 أغسطس 2026 · ⏱️ 6 دقائق قراءة</div>
+        <p>نستعرض أفضل أدوات الذكاء الاصطناعي التي ستغير طريقة عملك في الكتابة والتصميم والبرمجة والتسويق.</p>
+        <a href="#" class="btn-outline">اقرأ المزيد</a>
+      </div>
+
+      <div class="post-card">
+        <span class="badge">📌 مميز</span>
+        <h3>الذكاء الاصطناعي في التسويق الرقمي</h3>
+        <div class="meta">📅 5 أغسطس 2026 · ⏱️ 4 دقائق قراءة</div>
+        <p>كيف يمكن للذكاء الاصطناعي تحسين حملاتك التسويقية وزيادة المبيعات بشكل كبير من خلال التحليل والتنبؤ.</p>
+        <a href="#" class="btn-outline">اقرأ المزيد</a>
+      </div>
+
+      <div class="post-card">
+        <span class="badge">📌 جديد</span>
+        <h3>أخلاقيات الذكاء الاصطناعي: ما يجب أن تعرفه</h3>
+        <div class="meta">📅 4 أغسطس 2026 · ⏱️ 5 دقائق قراءة</div>
+        <p>نناقش الجوانب الأخلاقية للذكاء الاصطناعي وكيفية استخدامه بمسؤولية مع الحفاظ على الخصوصية والشفافية.</p>
+        <a href="#" class="btn-outline">اقرأ المزيد</a>
+      </div>
+
+      <div class="post-card">
+        <span class="badge">📌 مميز</span>
+        <h3>أدوات الذكاء الاصطناعي للمبرمجين</h3>
+        <div class="meta">📅 3 أغسطس 2026 · ⏱️ 6 دقائق قراءة</div>
+        <p>أفضل أدوات الذكاء الاصطناعي التي تساعد المبرمجين في كتابة الأكواد وتسريع التطوير وتحسين الجودة.</p>
+        <a href="#" class="btn-outline">اقرأ المزيد</a>
+      </div>
+
+      <div class="post-card">
+        <span class="badge">📌 جديد</span>
+        <h3>تعلم الآلة: المفاهيم الأساسية</h3>
+        <div class="meta">📅 2 أغسطس 2026 · ⏱️ 7 دقائق قراءة</div>
+        <p>شرح مبسط لمفاهيم تعلم الآلة وأنواعه، وكيفية تطبيقه في مجالات مختلفة مثل الصحة والتجارة.</p>
+        <a href="#" class="btn-outline">اقرأ المزيد</a>
+      </div>
+
+      <div class="post-card">
+        <span class="badge">📌 مميز</span>
+        <h3>مستقبل الذكاء الاصطناعي في العالم العربي</h3>
+        <div class="meta">📅 1 أغسطس 2026 · ⏱️ 5 دقائق قراءة</div>
+        <p>نستعرض مستقبل الذكاء الاصطناعي في المنطقة العربية، والفرص المتاحة في مختلف القطاعات الاقتصادية.</p>
+        <a href="#" class="btn-outline">اقرأ المزيد</a>
+      </div>
+    </div>
+
+    <div class="footer">
+      © 2026 <span>AI LEAD</span> — جميع الحقوق محفوظة
+    </div>
+
+  </div>
+
+  <script>
+    const canvas = document.getElementById('particles-canvas');
+    const ctx = canvas.getContext('2d');
+    let w, h;
+
+    function resize() {
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener('resize', resize);
+    resize();
+
+    const particles = [];
+
+    for (let i = 0; i < 60; i++) {
+      particles.push({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        size: Math.random() * 2.5 + 1,
+        speedX: (Math.random() - 0.5) * 0.3,
+        speedY: (Math.random() - 0.5) * 0.3,
+        color: `hsl(${Math.random() * 60 + 210}, 80%, 60%)`
+      });
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, w, h);
+
+      particles.forEach(p => {
+        p.x += p.speedX;
+        p.y += p.speedY;
+
+        if (p.x < 0 || p.x > w) p.speedX *= -1;
+        if (p.y < 0 || p.y > h) p.speedY *= -1;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = p.color;
+        ctx.shadowColor = 'rgba(56, 189, 248, 0.2)';
+        ctx.shadowBlur = 15;
+        ctx.fill();
+      });
+
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 120) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(56, 189, 248, ${0.06 * (1 - dist / 120)})`;
+            ctx.lineWidth = 1;
+            ctx.stroke();
+          }
+        }
+      }
+
+      requestAnimationFrame(draw);
+    }
+
+    draw();
+  </script>
+</body>
+</html>
