@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>من نحن - AI LEAD</title>
+  <meta name="description" content="تعرف على منصة AI LEAD، رؤيتنا، رسالتنا، وقيمنا في تقديم محتوى عربي متميز في الذكاء الاصطناعي." />
+  <meta name="keywords" content="من نحن, AI LEAD, رؤية AI, رسالة AI" />
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/869/869636.png" />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -11,8 +14,21 @@
       background: #0B1120;
       color: #FFFFFF;
       line-height: 1.6;
+      overflow-x: hidden;
+    }
+    #particles-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      background: #0B1120;
     }
     .container {
+      position: relative;
+      z-index: 1;
       max-width: 1100px;
       margin: 0 auto;
       padding: 0 20px;
@@ -23,6 +39,8 @@
       align-items: center;
       padding: 20px 0;
       border-bottom: 1px solid rgba(37, 99, 235, 0.15);
+      flex-wrap: wrap;
+      gap: 10px;
     }
     .logo {
       font-size: 2rem;
@@ -31,14 +49,11 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-    .logo span {
-      font-weight: 300;
-      -webkit-text-fill-color: #94A3B8;
-    }
+    .logo span { font-weight: 300; -webkit-text-fill-color: #94A3B8; }
     .nav a {
       color: #94A3B8;
       text-decoration: none;
-      margin-right: 20px;
+      margin-right: 15px;
       font-weight: 500;
       font-size: 0.95rem;
       transition: 0.3s;
@@ -78,6 +93,7 @@
       color: #94A3B8;
       font-size: 1.05rem;
       margin-bottom: 20px;
+      line-height: 1.8;
     }
     .values {
       display: grid;
@@ -114,9 +130,11 @@
       font-size: 0.9rem;
     }
     .footer span { color: #38BDF8; }
+    .footer a { color: #38BDF8; text-decoration: none; margin: 0 10px; }
     @media (max-width: 700px) {
-      .header { flex-wrap: wrap; gap: 10px; justify-content: center; }
-      .nav a { margin: 0 10px; }
+      .header { flex-direction: column; align-items: center; gap: 12px; }
+      .nav { justify-content: center; flex-wrap: wrap; }
+      .nav a { margin: 0 8px; }
       .page-title h1 { font-size: 2.2rem; }
       .about-content { padding: 25px 20px; }
     }
@@ -124,16 +142,20 @@
 </head>
 <body>
 
+  <canvas id="particles-canvas"></canvas>
+
   <div class="container">
+
     <div class="header">
       <div class="logo">AI <span>LEAD</span></div>
       <div class="nav">
         <a href="index.html">الرئيسية</a>
         <a href="courses.html">الدورات</a>
-        <a href="videos.html">الفيديوهات</a>
+        <a href="videos.html">الموارد</a>
         <a href="analyzer.html">تحليل الموقع</a>
+        <a href="blog.html">المدونة</a>
         <a href="about.html">من نحن</a>
-        <a href="#">تواصل</a>
+        <a href="contact.html">تواصل</a>
         <a href="login.html">تسجيل الدخول</a>
       </div>
     </div>
@@ -150,6 +172,9 @@
       <h2>💡 رسالتنا</h2>
       <p>تمكين الأفراد والشركات من استخدام أدوات الذكاء الاصطناعي بسهولة وفعالية، لزيادة الإنتاجية والإبداع في مجالاتهم المختلفة.</p>
 
+      <h2>📌 قصة البداية</h2>
+      <p>انطلقت منصة <strong>AI LEAD</strong> من رؤية بسيطة: "لماذا لا نجد منصة عربية تجمع كل أدوات الذكاء الاصطناعي في مكان واحد؟" ومن هنا بدأنا رحلتنا لتقديم محتوى عربي متميز، وخدمات تدريبية واستشارية تساعد الجميع على الاستفادة من تقنيات الذكاء الاصطناعي.</p>
+
       <h2>🌟 قيمنا</h2>
       <div class="values">
         <div class="value-card"><span class="icon">🤝</span><h3>الثقة</h3><p>نقدم محتوى موثوقاً وشفافاً</p></div>
@@ -160,9 +185,81 @@
     </div>
 
     <div class="footer">
-      © 2026 <span>AI LEAD</span> — جميع الحقوق محفوظة
+      <p>© 2026 <span>AI LEAD</span> — جميع الحقوق محفوظة</p>
+      <p style="margin-top: 8px;">
+        <a href="privacy.html">سياسة الخصوصية</a>
+        <a href="terms.html">شروط الخدمة</a>
+      </p>
     </div>
+
   </div>
 
+  <button onclick="window.scrollTo({top:0,behavior:'smooth'})" style="position:fixed;bottom:30px;left:30px;background:#2563EB;color:#fff;border:none;border-radius:50%;width:50px;height:50px;font-size:1.5rem;cursor:pointer;box-shadow:0 0 30px rgba(37,99,235,0.3);z-index:999;">↑</button>
+
+  <script>
+    const canvas = document.getElementById('particles-canvas');
+    const ctx = canvas.getContext('2d');
+    let w, h;
+
+    function resize() {
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener('resize', resize);
+    resize();
+
+    const particles = [];
+
+    for (let i = 0; i < 60; i++) {
+      particles.push({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        size: Math.random() * 2.5 + 1,
+        speedX: (Math.random() - 0.5) * 0.3,
+        speedY: (Math.random() - 0.5) * 0.3,
+        color: `hsl(${Math.random() * 60 + 210}, 80%, 60%)`
+      });
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, w, h);
+
+      particles.forEach(p => {
+        p.x += p.speedX;
+        p.y += p.speedY;
+
+        if (p.x < 0 || p.x > w) p.speedX *= -1;
+        if (p.y < 0 || p.y > h) p.speedY *= -1;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = p.color;
+        ctx.shadowColor = 'rgba(56, 189, 248, 0.2)';
+        ctx.shadowBlur = 15;
+        ctx.fill();
+      });
+
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 120) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(56, 189, 248, ${0.06 * (1 - dist / 120)})`;
+            ctx.lineWidth = 1;
+            ctx.stroke();
+          }
+        }
+      }
+
+      requestAnimationFrame(draw);
+    }
+
+    draw();
+  </script>
 </body>
 </html>

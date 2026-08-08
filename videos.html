@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>الموارد التعليمية - AI LEAD</title>
+  <meta name="description" content="مصادر تعليمية مجانية في الذكاء الاصطناعي من كبرى الشركات العالمية." />
+  <meta name="keywords" content="موارد AI, تعلم الذكاء الاصطناعي, دورات مجانية, كتب AI" />
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/869/869636.png" />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -113,13 +116,14 @@
       margin: 10px 0 16px;
     }
     .resource-card .btn-outline {
+      display: inline-block;
       background: transparent;
       border: 1px solid #2563EB;
       color: #38BDF8;
       padding: 10px 28px;
       border-radius: 40px;
       font-weight: 600;
-      cursor: pointer;
+      text-decoration: none;
       transition: 0.3s;
     }
     .resource-card .btn-outline:hover {
@@ -135,6 +139,7 @@
       font-size: 0.9rem;
     }
     .footer span { color: #38BDF8; }
+    .footer a { color: #38BDF8; text-decoration: none; margin: 0 10px; }
     @media (max-width: 700px) {
       .header { flex-direction: column; align-items: center; gap: 12px; }
       .nav { justify-content: center; flex-wrap: wrap; }
@@ -156,6 +161,7 @@
         <a href="courses.html">الدورات</a>
         <a href="videos.html">الموارد</a>
         <a href="analyzer.html">تحليل الموقع</a>
+        <a href="blog.html">المدونة</a>
         <a href="about.html">من نحن</a>
         <a href="contact.html">تواصل</a>
         <a href="login.html">تسجيل الدخول</a>
@@ -173,7 +179,7 @@
         <h3>Microsoft AI Fluency</h3>
         <div class="meta"><span>🔵 مجاني</span><span>🌐 بالعربية</span></div>
         <p>44 درس من مايكروسوفت عن أساسيات الذكاء الاصطناعي وCopilot</p>
-        <button class="btn-outline" onclick="window.open('https://github.com/microsoft/AIFluency', '_blank')">زيارة</button>
+        <a href="https://github.com/microsoft/AIFluency" target="_blank" class="btn-outline">زيارة</a>
       </div>
 
       <div class="resource-card">
@@ -181,7 +187,7 @@
         <h3>IBM AI Education</h3>
         <div class="meta"><span>🔵 مجاني</span><span>🎯 34 درس</span></div>
         <p>دورة مجانية من IBM: AI Architectures، LLMs، MLOps، Agentic AI</p>
-        <button class="btn-outline" onclick="window.open('https://www.linkedin.com/posts/kionahadi_the-most-expensive-ai-education-in-the-world-activity-7442939074547503104-3Tto', '_blank')">زيارة</button>
+        <a href="https://www.linkedin.com/posts/kionahadi_the-most-expensive-ai-education-in-the-world-activity-7442939074547503104-3Tto" target="_blank" class="btn-outline">زيارة</a>
       </div>
 
       <div class="resource-card">
@@ -189,7 +195,7 @@
         <h3>Cisco AI Course</h3>
         <div class="meta"><span>🔵 مجاني</span><span>🎯 50 فيديو</span></div>
         <p>دورة تفاعلية مع 16 تمرين عملي على ChatGPT و Gemini و Claude</p>
-        <button class="btn-outline" onclick="window.open('https://www.netacad.az/en/introduction-to-modern-ai/', '_blank')">زيارة</button>
+        <a href="https://www.netacad.az/en/introduction-to-modern-ai/" target="_blank" class="btn-outline">زيارة</a>
       </div>
 
       <div class="resource-card">
@@ -197,7 +203,7 @@
         <h3>DeepLearning.AI</h3>
         <div class="meta"><span>🔵 مجاني</span><span>🎯 7 ساعات</span></div>
         <p>من Andrew Ng: استخدام ChatGPT و Claude و Gemini في الكتابة والبرمجة</p>
-        <button class="btn-outline" onclick="window.open('https://www.deeplearning.ai/courses/ai-prompting-for-everyone', '_blank')">زيارة</button>
+        <a href="https://www.deeplearning.ai/courses/ai-prompting-for-everyone" target="_blank" class="btn-outline">زيارة</a>
       </div>
 
       <div class="resource-card">
@@ -205,7 +211,7 @@
         <h3>Khan Academy AI</h3>
         <div class="meta"><span>🔵 مجاني</span><span>🎯 للمبتدئين</span></div>
         <p>دورة مجانية من أكاديمية خان عن الذكاء الاصطناعي في التعليم</p>
-        <button class="btn-outline" onclick="window.open('https://support.khanacademy.org/hc/bg/articles/13988027115021-Where-can-I-learn-more-about-artificial-intelligence-s-potential-role-in-education', '_blank')">زيارة</button>
+        <a href="https://support.khanacademy.org/hc/bg/articles/13988027115021-Where-can-I-learn-more-about-artificial-intelligence-s-potential-role-in-education" target="_blank" class="btn-outline">زيارة</a>
       </div>
 
       <div class="resource-card">
@@ -213,31 +219,21 @@
         <h3>Google AI Courses</h3>
         <div class="meta"><span>🔵 مجاني</span><span>🎯 شهادة</span></div>
         <p>دورات مجانية من جوجل في الذكاء الاصطناعي والتعلم الآلي</p>
-        <button class="btn-outline" onclick="window.open('https://www.cloudskillsboost.google/paths/118', '_blank')">زيارة</button>
-      </div>
-
-      <div class="resource-card">
-        <span class="icon">📘</span>
-        <h3>Amazon AWS AI</h3>
-        <div class="meta"><span>🔵 مجاني</span><span>🎯 شهادة</span></div>
-        <p>دورات مجانية من أمازون في الذكاء الاصطناعي والتعلم العميق</p>
-        <button class="btn-outline" onclick="window.open('https://aws.amazon.com/training/learn-about/ai-ml/', '_blank')">زيارة</button>
-      </div>
-
-      <div class="resource-card">
-        <span class="icon">📘</span>
-        <h3>Harvard AI Course</h3>
-        <div class="meta"><span>🔵 مجاني</span><span>🎯 شهادة</span></div>
-        <p>دورة مجانية من جامعة هارفارد في الذكاء الاصطناعي</p>
-        <button class="btn-outline" onclick="window.open('https://pll.harvard.edu/course/cs50s-introduction-artificial-intelligence-python', '_blank')">زيارة</button>
+        <a href="https://www.cloudskillsboost.google/paths/118" target="_blank" class="btn-outline">زيارة</a>
       </div>
     </div>
 
     <div class="footer">
-      © 2026 <span>AI LEAD</span> — جميع الحقوق محفوظة
+      <p>© 2026 <span>AI LEAD</span> — جميع الحقوق محفوظة</p>
+      <p style="margin-top: 8px;">
+        <a href="privacy.html">سياسة الخصوصية</a>
+        <a href="terms.html">شروط الخدمة</a>
+      </p>
     </div>
 
   </div>
+
+  <button onclick="window.scrollTo({top:0,behavior:'smooth'})" style="position:fixed;bottom:30px;left:30px;background:#2563EB;color:#fff;border:none;border-radius:50%;width:50px;height:50px;font-size:1.5rem;cursor:pointer;box-shadow:0 0 30px rgba(37,99,235,0.3);z-index:999;">↑</button>
 
   <script>
     const canvas = document.getElementById('particles-canvas');

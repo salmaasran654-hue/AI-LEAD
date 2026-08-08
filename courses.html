@@ -4,13 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>الدورات التدريبية - AI LEAD</title>
+  <meta name="description" content="دورات تدريبية مجانية في الذكاء الاصطناعي من أفضل الجامعات والمنصات العالمية." />
+  <meta name="keywords" content="دورات AI, تعلم الذكاء الاصطناعي, دورات مجانية, شهادات معتمدة" />
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/869/869636.png" />
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Segoe UI', Tahoma, sans-serif;
       background: #0B1120;
@@ -18,7 +16,6 @@
       line-height: 1.6;
       overflow-x: hidden;
     }
-
     #particles-canvas {
       position: fixed;
       top: 0;
@@ -29,7 +26,6 @@
       pointer-events: none;
       background: #0B1120;
     }
-
     .container {
       position: relative;
       z-index: 1;
@@ -37,7 +33,6 @@
       margin: 0 auto;
       padding: 0 20px;
     }
-
     .header {
       display: flex;
       justify-content: space-between;
@@ -47,7 +42,6 @@
       flex-wrap: wrap;
       gap: 10px;
     }
-
     .logo {
       font-size: 2rem;
       font-weight: 800;
@@ -55,12 +49,7 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-
-    .logo span {
-      font-weight: 300;
-      -webkit-text-fill-color: #94A3B8;
-    }
-
+    .logo span { font-weight: 300; -webkit-text-fill-color: #94A3B8; }
     .nav a {
       color: #94A3B8;
       text-decoration: none;
@@ -69,40 +58,31 @@
       font-size: 0.95rem;
       transition: 0.3s;
     }
-
-    .nav a:hover {
-      color: #38BDF8;
-    }
-
+    .nav a:hover { color: #38BDF8; }
     .page-title {
       text-align: center;
       padding: 50px 0 20px;
     }
-
     .page-title h1 {
       font-size: 3rem;
       font-weight: 800;
     }
-
     .page-title h1 span {
       background: linear-gradient(135deg, #2563EB, #8B5CF6);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-
     .page-title p {
       color: #94A3B8;
       font-size: 1.1rem;
       margin-top: 10px;
     }
-
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 30px;
       padding: 20px 0 50px;
     }
-
     .course-card {
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid rgba(37, 99, 235, 0.1);
@@ -111,57 +91,47 @@
       transition: 0.3s;
       backdrop-filter: blur(4px);
     }
-
     .course-card:hover {
       border-color: #2563EB;
       transform: translateY(-6px);
       box-shadow: 0 0 40px rgba(37, 99, 235, 0.06);
     }
-
     .course-card .icon {
       font-size: 2.6rem;
       display: block;
       margin-bottom: 12px;
     }
-
     .course-card h3 {
       font-size: 1.4rem;
       font-weight: 700;
     }
-
     .course-card .meta {
       color: #94A3B8;
       font-size: 0.9rem;
       margin: 6px 0 12px;
     }
-
-    .course-card .meta span {
-      margin-left: 12px;
-    }
-
+    .course-card .meta span { margin-left: 12px; }
     .course-card p {
       color: #94A3B8;
       font-size: 0.95rem;
       margin: 10px 0 16px;
     }
-
     .course-card .btn-outline {
+      display: inline-block;
       background: transparent;
       border: 1px solid #2563EB;
       color: #38BDF8;
       padding: 10px 28px;
       border-radius: 40px;
       font-weight: 600;
-      cursor: pointer;
+      text-decoration: none;
       transition: 0.3s;
     }
-
     .course-card .btn-outline:hover {
       background: #2563EB;
       color: white;
       box-shadow: 0 0 30px rgba(37, 99, 235, 0.2);
     }
-
     .footer {
       border-top: 1px solid rgba(37, 99, 235, 0.08);
       padding: 25px 0;
@@ -169,27 +139,13 @@
       color: #64748B;
       font-size: 0.9rem;
     }
-
-    .footer span {
-      color: #38BDF8;
-    }
-
+    .footer span { color: #38BDF8; }
+    .footer a { color: #38BDF8; text-decoration: none; margin: 0 10px; }
     @media (max-width: 700px) {
-      .header {
-        flex-direction: column;
-        align-items: center;
-        gap: 12px;
-      }
-      .nav {
-        justify-content: center;
-        flex-wrap: wrap;
-      }
-      .nav a {
-        margin: 0 8px;
-      }
-      .page-title h1 {
-        font-size: 2.2rem;
-      }
+      .header { flex-direction: column; align-items: center; gap: 12px; }
+      .nav { justify-content: center; flex-wrap: wrap; }
+      .nav a { margin: 0 8px; }
+      .page-title h1 { font-size: 2.2rem; }
     }
   </style>
 </head>
@@ -204,8 +160,9 @@
       <div class="nav">
         <a href="index.html">الرئيسية</a>
         <a href="courses.html">الدورات</a>
-        <a href="videos.html">الفيديوهات</a>
+        <a href="videos.html">الموارد</a>
         <a href="analyzer.html">تحليل الموقع</a>
+        <a href="blog.html">المدونة</a>
         <a href="about.html">من نحن</a>
         <a href="contact.html">تواصل</a>
         <a href="login.html">تسجيل الدخول</a>
@@ -219,59 +176,65 @@
 
     <div class="grid-3">
       <div class="course-card">
-        <span class="icon">📊</span>
-        <h3>إدارة المشاريع الاحترافية بالذكاء الاصطناعي</h3>
-        <div class="meta"><span>🕒 10 أسابيع</span><span>📁 شهادة معتمدة</span></div>
-        <p>تعلم استخدام أدوات الذكاء الاصطناعي في تخطيط وتنفيذ المشاريع بكفاءة</p>
-        <button class="btn-outline" onclick="window.open('https://forms.gle/example1', '_blank')">سجل الآن</button>
-      </div>
-
-      <div class="course-card">
-        <span class="icon">💻</span>
-        <h3>البرمجة والتطوير بالذكاء الاصطناعي</h3>
-        <div class="meta"><span>🕒 12 أسبوعاً</span><span>📁 مشروع عملي</span></div>
-        <p>تسريع عملية التطوير باستخدام أدوات الذكاء الاصطناعي الحديثة</p>
-        <button class="btn-outline" onclick="window.open('https://forms.gle/example2', '_blank')">سجل الآن</button>
-      </div>
-
-      <div class="course-card">
-        <span class="icon">🎨</span>
-        <h3>التسويق الرقمي بالذكاء الاصطناعي</h3>
-        <div class="meta"><span>🕒 6 أسابيع</span><span>📁 مشروع عملي</span></div>
-        <p>استراتيجيات التسويق الرقمي المدعومة بالذكاء الاصطناعي</p>
-        <button class="btn-outline" onclick="window.open('https://forms.gle/example3', '_blank')">سجل الآن</button>
-      </div>
-
-      <div class="course-card">
-        <span class="icon">🧠</span>
+        <span class="icon">📘</span>
         <h3>أساسيات الذكاء الاصطناعي</h3>
         <div class="meta"><span>🕒 4 أسابيع</span><span>📁 شهادة معتمدة</span></div>
-        <p>مقدمة شاملة في الذكاء الاصطناعي وتطبيقاته العملية</p>
-        <button class="btn-outline" onclick="window.open('https://forms.gle/example4', '_blank')">سجل الآن</button>
+        <p>مقدمة شاملة في الذكاء الاصطناعي من جامعة هارفارد</p>
+        <a href="https://pll.harvard.edu/course/cs50s-introduction-artificial-intelligence-python" target="_blank" class="btn-outline">التسجيل</a>
       </div>
 
       <div class="course-card">
-        <span class="icon">📈</span>
-        <h3>تحليل البيانات بالذكاء الاصطناعي</h3>
-        <div class="meta"><span>🕒 10 أسابيع</span><span>📁 مشروع عملي</span></div>
-        <p>استخدام الذكاء الاصطناعي في تحليل البيانات واتخاذ القرارات</p>
-        <button class="btn-outline" onclick="window.open('https://forms.gle/example5', '_blank')">سجل الآن</button>
+        <span class="icon">📘</span>
+        <h3>تعلم الآلة</h3>
+        <div class="meta"><span>🕒 10 أسابيع</span><span>📁 شهادة معتمدة</span></div>
+        <p>دورة تعلم الآلة من Stanford University</p>
+        <a href="https://www.coursera.org/learn/machine-learning" target="_blank" class="btn-outline">التسجيل</a>
       </div>
 
       <div class="course-card">
-        <span class="icon">🤖</span>
-        <h3>بناء روبوتات المحادثة</h3>
-        <div class="meta"><span>🕒 6 أسابيع</span><span>📁 مشروع عملي</span></div>
-        <p>تصميم وتطوير روبوتات محادثة ذكية باستخدام الذكاء الاصطناعي</p>
-        <button class="btn-outline" onclick="window.open('https://forms.gle/example6', '_blank')">سجل الآن</button>
+        <span class="icon">📘</span>
+        <h3>الذكاء الاصطناعي من Google</h3>
+        <div class="meta"><span>🕒 6 أسابيع</span><span>📁 شهادة مجانية</span></div>
+        <p>دورة مجانية من Google مع شهادة إتمام</p>
+        <a href="https://www.cloudskillsboost.google/paths/118" target="_blank" class="btn-outline">التسجيل</a>
+      </div>
+
+      <div class="course-card">
+        <span class="icon">📘</span>
+        <h3>أساسيات التعلم العميق</h3>
+        <div class="meta"><span>🕒 5 أسابيع</span><span>📁 مشروع عملي</span></div>
+        <p>مقدمة في التعلم العميق والشبكات العصبية</p>
+        <a href="https://www.deeplearning.ai/courses/deep-learning-specialization/" target="_blank" class="btn-outline">التسجيل</a>
+      </div>
+
+      <div class="course-card">
+        <span class="icon">📘</span>
+        <h3>معالجة اللغة الطبيعية</h3>
+        <div class="meta"><span>🕒 8 أسابيع</span><span>📁 مشروع عملي</span></div>
+        <p>تعلم معالجة اللغة الطبيعية باستخدام Python</p>
+        <a href="https://www.coursera.org/learn/natural-language-processing" target="_blank" class="btn-outline">التسجيل</a>
+      </div>
+
+      <div class="course-card">
+        <span class="icon">📘</span>
+        <h3>رؤية الحاسوب</h3>
+        <div class="meta"><span>🕒 8 أسابيع</span><span>📁 مشروع عملي</span></div>
+        <p>تعلم رؤية الحاسوب باستخدام OpenCV وPython</p>
+        <a href="https://www.opencv.org" target="_blank" class="btn-outline">التسجيل</a>
       </div>
     </div>
 
     <div class="footer">
-      © 2026 <span>AI LEAD</span> — جميع الحقوق محفوظة
+      <p>© 2026 <span>AI LEAD</span> — جميع الحقوق محفوظة</p>
+      <p style="margin-top: 8px;">
+        <a href="privacy.html">سياسة الخصوصية</a>
+        <a href="terms.html">شروط الخدمة</a>
+      </p>
     </div>
 
   </div>
+
+  <button onclick="window.scrollTo({top:0,behavior:'smooth'})" style="position:fixed;bottom:30px;left:30px;background:#2563EB;color:#fff;border:none;border-radius:50%;width:50px;height:50px;font-size:1.5rem;cursor:pointer;box-shadow:0 0 30px rgba(37,99,235,0.3);z-index:999;">↑</button>
 
   <script>
     const canvas = document.getElementById('particles-canvas');

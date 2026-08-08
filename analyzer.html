@@ -4,21 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>تحليل الموقع - AI LEAD</title>
+  <meta name="description" content="تحليل ظهور موقعك في محركات البحث والذكاء الاصطناعي." />
+  <meta name="keywords" content="تحليل SEO, تحليل AI, E-E-A-T, GEO" />
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/869/869636.png" />
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: 'Inter', 'Segoe UI', Tahoma, sans-serif;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
       background: #0B1120;
       color: #FFFFFF;
       line-height: 1.6;
-      min-height: 100vh;
+      overflow-x: hidden;
     }
-
     #particles-canvas {
       position: fixed;
       top: 0;
@@ -29,23 +26,22 @@
       pointer-events: none;
       background: #0B1120;
     }
-
     .container {
       position: relative;
       z-index: 1;
-      max-width: 1200px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 0 30px;
+      padding: 0 20px;
     }
-
     .header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 24px 0;
-      border-bottom: 1px solid rgba(37, 99, 235, 0.12);
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(37, 99, 235, 0.15);
+      flex-wrap: wrap;
+      gap: 10px;
     }
-
     .logo {
       font-size: 2rem;
       font-weight: 800;
@@ -53,70 +49,40 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-
-    .logo span {
-      font-weight: 300;
-      -webkit-text-fill-color: #94A3B8;
-    }
-
+    .logo span { font-weight: 300; -webkit-text-fill-color: #94A3B8; }
     .nav a {
       color: #94A3B8;
       text-decoration: none;
-      margin-right: 28px;
+      margin-right: 15px;
       font-weight: 500;
       font-size: 0.95rem;
       transition: 0.3s;
     }
-
-    .nav a:hover {
-      color: #38BDF8;
-    }
-
-    .nav .btn-primary {
-      background: #2563EB;
-      color: white;
-      padding: 10px 24px;
-      border-radius: 40px;
-      font-weight: 600;
-      border: none;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .nav .btn-primary:hover {
-      background: #1D4ED8;
-      box-shadow: 0 0 24px rgba(37, 99, 235, 0.3);
-    }
-
+    .nav a:hover { color: #38BDF8; }
     .page-title {
       text-align: center;
       padding: 50px 0 20px;
     }
-
     .page-title h1 {
       font-size: 3rem;
       font-weight: 800;
     }
-
     .page-title h1 span {
       background: linear-gradient(135deg, #2563EB, #8B5CF6);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-
     .page-title p {
       color: #94A3B8;
       font-size: 1.1rem;
       margin-top: 10px;
     }
-
     .analyzer-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 25px;
       padding: 30px 0 50px;
     }
-
     .analyzer-card {
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid rgba(37, 99, 235, 0.1);
@@ -124,26 +90,21 @@
       padding: 30px 20px;
       text-align: center;
       transition: 0.3s;
-      backdrop-filter: blur(4px);
     }
-
     .analyzer-card:hover {
       border-color: #2563EB;
       transform: translateY(-5px);
     }
-
     .analyzer-card .score {
       font-size: 3.2rem;
       font-weight: 800;
       color: #38BDF8;
     }
-
     .analyzer-card .label {
       color: #94A3B8;
       font-size: 0.95rem;
       margin-top: 6px;
     }
-
     .analyzer-card .bar {
       width: 100%;
       height: 6px;
@@ -152,14 +113,12 @@
       margin-top: 14px;
       overflow: hidden;
     }
-
     .analyzer-card .bar .fill {
       height: 100%;
       border-radius: 10px;
       background: linear-gradient(90deg, #2563EB, #8B5CF6);
       width: 0%;
     }
-
     .input-section {
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid rgba(37, 99, 235, 0.1);
@@ -168,7 +127,6 @@
       margin: 20px 0 40px;
       text-align: center;
     }
-
     .input-section input {
       width: 70%;
       padding: 14px 20px;
@@ -180,16 +138,13 @@
       outline: none;
       transition: 0.3s;
     }
-
     .input-section input:focus {
       border-color: #2563EB;
       box-shadow: 0 0 20px rgba(37, 99, 235, 0.1);
     }
-
     .input-section input::placeholder {
       color: #64748B;
     }
-
     .input-section button {
       background: linear-gradient(135deg, #2563EB, #8B5CF6);
       border: none;
@@ -202,47 +157,25 @@
       transition: 0.3s;
       margin-right: 12px;
     }
-
     .input-section button:hover {
       transform: scale(1.04);
       box-shadow: 0 0 30px rgba(37, 99, 235, 0.3);
     }
-
     .footer {
       border-top: 1px solid rgba(37, 99, 235, 0.08);
-      padding: 28px 0;
-      margin-top: 30px;
+      padding: 25px 0;
       text-align: center;
       color: #64748B;
       font-size: 0.9rem;
     }
-
-    .footer span {
-      color: #38BDF8;
-    }
-
+    .footer span { color: #38BDF8; }
+    .footer a { color: #38BDF8; text-decoration: none; margin: 0 10px; }
     @media (max-width: 700px) {
-      .header {
-        flex-wrap: wrap;
-        gap: 14px;
-        justify-content: center;
-      }
-      .nav {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-        justify-content: center;
-      }
-      .nav a {
-        margin-right: 0;
-      }
-      .page-title h1 {
-        font-size: 2.2rem;
-      }
-      .input-section input {
-        width: 100%;
-        margin-bottom: 12px;
-      }
+      .header { flex-direction: column; align-items: center; gap: 12px; }
+      .nav { justify-content: center; flex-wrap: wrap; }
+      .nav a { margin: 0 8px; }
+      .page-title h1 { font-size: 2.2rem; }
+      .input-section input { width: 100%; margin-bottom: 12px; }
     }
   </style>
 </head>
@@ -257,10 +190,12 @@
       <div class="nav">
         <a href="index.html">الرئيسية</a>
         <a href="courses.html">الدورات</a>
-        <a href="videos.html">الفيديوهات</a>
+        <a href="videos.html">الموارد</a>
         <a href="analyzer.html">تحليل الموقع</a>
-        <a href="#">تواصل</a>
-        <a href="login.html" class="btn-primary">تسجيل الدخول</a>
+        <a href="blog.html">المدونة</a>
+        <a href="about.html">من نحن</a>
+        <a href="contact.html">تواصل</a>
+        <a href="login.html">تسجيل الدخول</a>
       </div>
     </div>
 
@@ -298,10 +233,16 @@
     </div>
 
     <div class="footer">
-      © 2026 <span>AI LEAD</span> — جميع الحقوق محفوظة
+      <p>© 2026 <span>AI LEAD</span> — جميع الحقوق محفوظة</p>
+      <p style="margin-top: 8px;">
+        <a href="privacy.html">سياسة الخصوصية</a>
+        <a href="terms.html">شروط الخدمة</a>
+      </p>
     </div>
 
   </div>
+
+  <button onclick="window.scrollTo({top:0,behavior:'smooth'})" style="position:fixed;bottom:30px;left:30px;background:#2563EB;color:#fff;border:none;border-radius:50%;width:50px;height:50px;font-size:1.5rem;cursor:pointer;box-shadow:0 0 30px rgba(37,99,235,0.3);z-index:999;">↑</button>
 
   <script>
     const canvas = document.getElementById('particles-canvas');
@@ -318,14 +259,13 @@
 
     const particles = [];
 
-    for (let i = 0; i < 120; i++) {
+    for (let i = 0; i < 60; i++) {
       particles.push({
         x: Math.random() * w,
         y: Math.random() * h,
-        size: Math.random() * 3 + 1,
-        speedX: (Math.random() - 0.5) * 0.4,
-        speedY: (Math.random() - 0.5) * 0.4,
-        opacity: Math.random() * 0.6 + 0.2,
+        size: Math.random() * 2.5 + 1,
+        speedX: (Math.random() - 0.5) * 0.3,
+        speedY: (Math.random() - 0.5) * 0.3,
         color: `hsl(${Math.random() * 60 + 210}, 80%, 60%)`
       });
     }
@@ -343,8 +283,8 @@
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
         ctx.fillStyle = p.color;
-        ctx.shadowColor = 'rgba(56, 189, 248, 0.3)';
-        ctx.shadowBlur = 20;
+        ctx.shadowColor = 'rgba(56, 189, 248, 0.2)';
+        ctx.shadowBlur = 15;
         ctx.fill();
       });
 
@@ -353,11 +293,11 @@
           const dx = particles[i].x - particles[j].x;
           const dy = particles[i].y - particles[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 150) {
+          if (dist < 120) {
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `rgba(56, 189, 248, ${0.08 * (1 - dist / 150)})`;
+            ctx.strokeStyle = `rgba(56, 189, 248, ${0.06 * (1 - dist / 120)})`;
             ctx.lineWidth = 1;
             ctx.stroke();
           }

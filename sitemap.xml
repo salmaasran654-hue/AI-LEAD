@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://ai-hub-egypt-seven.vercel.app/</loc></url>
-  <url><loc>https://ai-hub-egypt-seven.vercel.app/login.html</loc></url>
-  <url><loc>https://ai-hub-egypt-seven.vercel.app/signup.html</loc></url>
-  <url><loc>https://ai-hub-egypt-seven.vercel.app/dashboard.html</loc></url>
-  <url><loc>https://ai-hub-egypt-seven.vercel.app/favorites.html</loc></url>
-  <url><loc>https://ai-hub-egypt-seven.vercel.app/reviews.html</loc></url>
-  <url><loc>https://ai-hub-egypt-seven.vercel.app/writing.html</loc></url>
-  <url><loc>https://ai-hub-egypt-seven.vercel.app/design.html</loc></url>
-  <url><loc>https://ai-hub-egypt-seven.vercel.app/video.html</loc></url>
-  <url><loc>https://ai-hub-egypt-seven.vercel.app/coding.html</loc></url>
-  <url><loc>https://ai-hub-egypt-seven.vercel.app/study.html</loc></url>
-  <url><loc>https://ai-hub-egypt-seven.vercel.app/cv.html</loc></url>
+  <url><loc>https://ai-hub-egypt.vercel.app/</loc></url>
+  <url><loc>https://ai-hub-egypt.vercel.app/courses.html</loc></url>
+  <url><loc>https://ai-hub-egypt.vercel.app/videos.html</loc></url>
+  <url><loc>https://ai-hub-egypt.vercel.app/analyzer.html</loc></url>
+  <url><loc>https://ai-hub-egypt.vercel.app/blog.html</loc></url>
+  <url><loc>https://ai-hub-egypt.vercel.app/about.html</loc></url>
+  <url><loc>https://ai-hub-egypt.vercel.app/contact.html</loc></url>
+  <url><loc>https://ai-hub-egypt.vercel.app/login.html</loc></url>
+  <url><loc>https://ai-hub-egypt.vercel.app/signup.html</loc></url>
+  <url><loc>https://ai-hub-egypt.vercel.app/dashboard.html</loc></url>
+  <url><loc>https://ai-hub-egypt.vercel.app/privacy.html</loc></url>
+  <url><loc>https://ai-hub-egypt.vercel.app/terms.html</loc></url>
 </urlset>
