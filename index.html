@@ -59,6 +59,17 @@
       transition: 0.3s;
     }
     .nav a:hover { color: #38BDF8; }
+    .nav .build-link {
+      color: #38BDF8;
+      border: 1px solid #2563EB;
+      padding: 4px 14px;
+      border-radius: 40px;
+      transition: 0.3s;
+    }
+    .nav .build-link:hover {
+      background: #2563EB;
+      color: #fff;
+    }
     .lang-btn {
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(37, 99, 235, 0.2);
@@ -95,6 +106,12 @@
       max-width: 600px;
       margin: 15px auto 30px;
     }
+    .hero .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+    }
     .hero .btn {
       display: inline-block;
       background: linear-gradient(135deg, #2563EB, #8B5CF6);
@@ -110,6 +127,23 @@
     .hero .btn:hover {
       transform: scale(1.04);
       box-shadow: 0 0 40px rgba(37, 99, 235, 0.3);
+    }
+    .hero .btn-outline-hero {
+      display: inline-block;
+      background: transparent;
+      border: 2px solid #2563EB;
+      padding: 12px 38px;
+      border-radius: 60px;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .hero .btn-outline-hero:hover {
+      background: #2563EB;
+      color: #fff;
+      box-shadow: 0 0 40px rgba(37, 99, 235, 0.2);
     }
     .stats {
       display: grid;
@@ -221,65 +255,69 @@
     <div class="header">
       <div class="logo">AI <span>LEAD</span></div>
       <div class="nav">
-        <a href="index.html" data-key="nav_home">الرئيسية</a>
-        <a href="courses.html" data-key="nav_courses">الدورات</a>
-        <a href="videos.html" data-key="nav_resources">الموارد</a>
-        <a href="analyzer.html" data-key="nav_analyzer">تحليل الموقع</a>
-        <a href="blog.html" data-key="nav_blog">المدونة</a>
-        <a href="about.html" data-key="nav_about">من نحن</a>
-        <a href="contact.html" data-key="nav_contact">تواصل</a>
-        <a href="ai-ideas.html" data-key="nav_ideas">💡 أفكار إبداعية</a>
-        <a href="login.html" data-key="nav_login">تسجيل الدخول</a>
+        <a href="index.html">الرئيسية</a>
+        <a href="courses.html">الدورات</a>
+        <a href="videos.html">الموارد</a>
+        <a href="analyzer.html">تحليل الموقع</a>
+        <a href="blog.html">المدونة</a>
+        <a href="about.html">من نحن</a>
+        <a href="contact.html">تواصل</a>
+        <a href="ai-ideas.html">💡 أفكار إبداعية</a>
+        <a href="website-builder.html" class="build-link">🚀 بناء مواقع</a>
+        <a href="login.html">تسجيل الدخول</a>
         <button class="lang-btn" id="langToggle">🇬🇧 English</button>
       </div>
     </div>
 
     <div class="hero">
-      <h1>🚀 <span data-key="hero_title">منصة الذكاء الاصطناعي الرائدة في العالم العربي</span></h1>
-      <p data-key="hero_desc">اكتشف أحدث أدوات ومنتجات الذكاء الاصطناعي في مكان واحد</p>
-      <a href="courses.html" class="btn" data-key="hero_btn">استكشف الآن</a>
+      <h1>🚀 <span>منصة الذكاء الاصطناعي الرائدة في العالم العربي</span></h1>
+      <p>اكتشف أحدث أدوات ومنتجات الذكاء الاصطناعي في مكان واحد</p>
+      <div class="btn-group">
+        <a href="courses.html" class="btn">استكشف الآن</a>
+        <a href="website-builder.html" class="btn-outline-hero">💰 احصل على موقعك</a>
+      </div>
     </div>
 
     <div class="stats">
-      <div class="stat-card"><div class="num">24/7</div><div class="label" data-key="stat_support">دعم متواصل</div></div>
-      <div class="stat-card"><div class="num">+1000</div><div class="label" data-key="stat_trainees">متدرب ورس</div></div>
-      <div class="stat-card"><div class="num">+50</div><div class="label" data-key="stat_templates">قالب أتمتة</div></div>
-      <div class="stat-card"><div class="num">+500</div><div class="label" data-key="stat_tools">أداة ذكاء اصطناعي</div></div>
+      <div class="stat-card"><div class="num">24/7</div><div class="label">دعم متواصل</div></div>
+      <div class="stat-card"><div class="num">+1000</div><div class="label">متدرب ورس</div></div>
+      <div class="stat-card"><div class="num">+50</div><div class="label">قالب أتمتة</div></div>
+      <div class="stat-card"><div class="num">+500</div><div class="label">أداة ذكاء اصطناعي</div></div>
     </div>
 
-    <h2 class="section-title">🤖 <span data-key="section_tools">أدوات الذكاء الاصطناعي</span></h2>
+    <h2 class="section-title">🤖 <span>أدوات الذكاء الاصطناعي</span></h2>
     <div class="grid-3">
-      <div class="card"><span class="icon">💬</span><h3 data-key="tool_chatgpt">شات جي بي تي (ChatGPT)</h3><p data-key="tool_chatgpt_desc">أداة كتابة وتوليد نصوص ذكية مجانية</p><a href="https://chat.openai.com" target="_blank" class="btn-outline" data-key="try_now">جرب الآن</a></div>
-      <div class="card"><span class="icon">🎨</span><h3 data-key="tool_leonardo">توليد الصور (Leonardo AI)</h3><p data-key="tool_leonardo_desc">توليد صور احترافية مجاناً</p><a href="https://leonardo.ai" target="_blank" class="btn-outline" data-key="try_now">جرب الآن</a></div>
-      <div class="card"><span class="icon">🎬</span><h3 data-key="tool_runway">توليد الفيديوهات (RunwayML)</h3><p data-key="tool_runway_desc">توليد وتحرير فيديوهات بالذكاء الاصطناعي</p><a href="https://runwayml.com" target="_blank" class="btn-outline" data-key="try_now">جرب الآن</a></div>
+      <div class="card"><span class="icon">💬</span><h3>شات جي بي تي (ChatGPT)</h3><p>أداة كتابة وتوليد نصوص ذكية مجانية</p><a href="https://chat.openai.com" target="_blank" class="btn-outline">جرب الآن</a></div>
+      <div class="card"><span class="icon">🎨</span><h3>توليد الصور (Leonardo AI)</h3><p>توليد صور احترافية مجاناً</p><a href="https://leonardo.ai" target="_blank" class="btn-outline">جرب الآن</a></div>
+      <div class="card"><span class="icon">🎬</span><h3>توليد الفيديوهات (RunwayML)</h3><p>توليد وتحرير فيديوهات بالذكاء الاصطناعي</p><a href="https://runwayml.com" target="_blank" class="btn-outline">جرب الآن</a></div>
     </div>
 
-    <h2 class="section-title">🧑‍🏫 <span data-key="section_courses">دورات تدريبية مجانية</span></h2>
+    <h2 class="section-title">🧑‍🏫 <span>دورات تدريبية مجانية</span></h2>
     <div class="grid-3">
-      <div class="card"><span class="icon">📘</span><h3 data-key="course_harvard">دورة أساسيات الذكاء الاصطناعي</h3><p data-key="course_harvard_desc">من جامعة هارفارد - مجانية مع شهادة</p><a href="https://pll.harvard.edu/course/cs50s-introduction-artificial-intelligence-python" target="_blank" class="btn-outline" data-key="register">التسجيل</a></div>
-      <div class="card"><span class="icon">📘</span><h3 data-key="course_stanford">دورة تعلم الآلة</h3><p data-key="course_stanford_desc">من Stanford University - مجانية</p><a href="https://www.coursera.org/learn/machine-learning" target="_blank" class="btn-outline" data-key="register">التسجيل</a></div>
-      <div class="card"><span class="icon">📘</span><h3 data-key="course_google">دورة الذكاء الاصطناعي من Google</h3><p data-key="course_google_desc">مع شهادة إتمام مجانية</p><a href="https://www.cloudskillsboost.google/paths/118" target="_blank" class="btn-outline" data-key="register">التسجيل</a></div>
+      <div class="card"><span class="icon">📘</span><h3>دورة أساسيات الذكاء الاصطناعي</h3><p>من جامعة هارفارد - مجانية مع شهادة</p><a href="https://pll.harvard.edu/course/cs50s-introduction-artificial-intelligence-python" target="_blank" class="btn-outline">التسجيل</a></div>
+      <div class="card"><span class="icon">📘</span><h3>دورة تعلم الآلة</h3><p>من Stanford University - مجانية</p><a href="https://www.coursera.org/learn/machine-learning" target="_blank" class="btn-outline">التسجيل</a></div>
+      <div class="card"><span class="icon">📘</span><h3>دورة الذكاء الاصطناعي من Google</h3><p>مع شهادة إتمام مجانية</p><a href="https://www.cloudskillsboost.google/paths/118" target="_blank" class="btn-outline">التسجيل</a></div>
     </div>
 
-    <h2 class="section-title">📰 <span data-key="section_news">آخر الأخبار والأحداث</span></h2>
+    <h2 class="section-title">📰 <span>آخر الأخبار والأحداث</span></h2>
     <div class="grid-3">
-      <div class="card"><span class="icon">📌</span><h3 data-key="news_chatgpt">إطلاق ChatGPT-5</h3><p data-key="news_chatgpt_desc">أحدث إصدار من ChatGPT مع ميزات ثورية</p><a href="https://openai.com" target="_blank" class="btn-outline" data-key="read_more">اقرأ المزيد</a></div>
-      <div class="card"><span class="icon">📌</span><h3 data-key="news_summit">قمة الذكاء الاصطناعي 2026</h3><p data-key="news_summit_desc">أكبر مؤتمر للذكاء الاصطناعي في الشرق الأوسط</p><a href="https://www.ai.events" target="_blank" class="btn-outline" data-key="read_more">اقرأ المزيد</a></div>
-      <div class="card"><span class="icon">📌</span><h3 data-key="news_gemini">جوجل تطلق Gemini Ultra</h3><p data-key="news_gemini_desc">أحدث نموذج ذكاء اصطناعي من جوجل</p><a href="https://deepmind.google" target="_blank" class="btn-outline" data-key="read_more">اقرأ المزيد</a></div>
+      <div class="card"><span class="icon">📌</span><h3>إطلاق ChatGPT-5</h3><p>أحدث إصدار من ChatGPT مع ميزات ثورية</p><a href="https://openai.com" target="_blank" class="btn-outline">اقرأ المزيد</a></div>
+      <div class="card"><span class="icon">📌</span><h3>قمة الذكاء الاصطناعي 2026</h3><p>أكبر مؤتمر للذكاء الاصطناعي في الشرق الأوسط</p><a href="https://www.ai.events" target="_blank" class="btn-outline">اقرأ المزيد</a></div>
+      <div class="card"><span class="icon">📌</span><h3>جوجل تطلق Gemini Ultra</h3><p>أحدث نموذج ذكاء اصطناعي من جوجل</p><a href="https://deepmind.google" target="_blank" class="btn-outline">اقرأ المزيد</a></div>
     </div>
 
-    <h2 class="section-title">🛠️ <span data-key="section_services">خدمات مركز الذكاء الاصطناعي</span></h2>
+    <h2 class="section-title">🛠️ <span>خدمات مركز الذكاء الاصطناعي</span></h2>
     <div class="grid-3">
-      <div class="card"><span class="icon">⚙️</span><h3 data-key="service_consulting">استشارات الذكاء الاصطناعي</h3><p data-key="service_consulting_desc">نساعدك في تطبيق الذكاء الاصطناعي في عملك</p><a href="contact.html" class="btn-outline" data-key="consult">طلب استشارة</a></div>
-      <div class="card"><span class="icon">🧠</span><h3 data-key="service_development">تطوير حلول مخصصة</h3><p data-key="service_development_desc">نبني لك حلول ذكاء اصطناعي حسب احتياجك</p><a href="contact.html" class="btn-outline" data-key="request_offer">طلب عرض</a></div>
-      <div class="card"><span class="icon">🤖</span><h3 data-key="service_automation">أتمتة العمليات</h3><p data-key="service_automation_desc">نقوم بأتمتة مهامك الروتينية بالذكاء الاصطناعي</p><a href="contact.html" class="btn-outline" data-key="request_service">طلب خدمة</a></div>
+      <div class="card"><span class="icon">⚙️</span><h3>استشارات الذكاء الاصطناعي</h3><p>نساعدك في تطبيق الذكاء الاصطناعي في عملك</p><a href="contact.html" class="btn-outline">طلب استشارة</a></div>
+      <div class="card"><span class="icon">🧠</span><h3>تطوير حلول مخصصة</h3><p>نبني لك حلول ذكاء اصطناعي حسب احتياجك</p><a href="contact.html" class="btn-outline">طلب عرض</a></div>
+      <div class="card"><span class="icon">🤖</span><h3>أتمتة العمليات</h3><p>نقوم بأتمتة مهامك الروتينية بالذكاء الاصطناعي</p><a href="contact.html" class="btn-outline">طلب خدمة</a></div>
     </div>
 
     <div class="footer">
-      <p>© 2026 <span>AI LEAD</span> — <span data-key="footer_rights">جميع الحقوق محفوظة</span></p>
+      <p>© 2026 <span>AI LEAD</span> — جميع الحقوق محفوظة</p>
       <p style="margin-top: 8px;">
-        <a href="privacy.html" data-key="footer_privacy">سياسة الخصوصية</a>
-        <a href="terms.html" data-key="footer_terms">شروط الخدمة</a>
+        <a href="privacy.html">سياسة الخصوصية</a>
+        <a href="terms.html">شروط الخدمة</a>
       </p>
     </div>
 
@@ -351,151 +389,6 @@
     }
 
     draw();
-
-    // ===== الترجمة =====
-    const translations = {
-      ar: {
-        nav_home: 'الرئيسية',
-        nav_courses: 'الدورات',
-        nav_resources: 'الموارد',
-        nav_analyzer: 'تحليل الموقع',
-        nav_blog: 'المدونة',
-        nav_about: 'من نحن',
-        nav_contact: 'تواصل',
-        nav_ideas: '💡 أفكار إبداعية',
-        nav_login: 'تسجيل الدخول',
-        hero_title: 'منصة الذكاء الاصطناعي الرائدة في العالم العربي',
-        hero_desc: 'اكتشف أحدث أدوات ومنتجات الذكاء الاصطناعي في مكان واحد',
-        hero_btn: 'استكشف الآن',
-        stat_support: 'دعم متواصل',
-        stat_trainees: 'متدرب ورس',
-        stat_templates: 'قالب أتمتة',
-        stat_tools: 'أداة ذكاء اصطناعي',
-        section_tools: 'أدوات الذكاء الاصطناعي',
-        tool_chatgpt: 'شات جي بي تي (ChatGPT)',
-        tool_chatgpt_desc: 'أداة كتابة وتوليد نصوص ذكية مجانية',
-        try_now: 'جرب الآن',
-        tool_leonardo: 'توليد الصور (Leonardo AI)',
-        tool_leonardo_desc: 'توليد صور احترافية مجاناً',
-        tool_runway: 'توليد الفيديوهات (RunwayML)',
-        tool_runway_desc: 'توليد وتحرير فيديوهات بالذكاء الاصطناعي',
-        section_courses: 'دورات تدريبية مجانية',
-        course_harvard: 'دورة أساسيات الذكاء الاصطناعي',
-        course_harvard_desc: 'من جامعة هارفارد - مجانية مع شهادة',
-        register: 'التسجيل',
-        course_stanford: 'دورة تعلم الآلة',
-        course_stanford_desc: 'من Stanford University - مجانية',
-        course_google: 'دورة الذكاء الاصطناعي من Google',
-        course_google_desc: 'مع شهادة إتمام مجانية',
-        section_news: 'آخر الأخبار والأحداث',
-        news_chatgpt: 'إطلاق ChatGPT-5',
-        news_chatgpt_desc: 'أحدث إصدار من ChatGPT مع ميزات ثورية',
-        read_more: 'اقرأ المزيد',
-        news_summit: 'قمة الذكاء الاصطناعي 2026',
-        news_summit_desc: 'أكبر مؤتمر للذكاء الاصطناعي في الشرق الأوسط',
-        news_gemini: 'جوجل تطلق Gemini Ultra',
-        news_gemini_desc: 'أحدث نموذج ذكاء اصطناعي من جوجل',
-        section_services: 'خدمات مركز الذكاء الاصطناعي',
-        service_consulting: 'استشارات الذكاء الاصطناعي',
-        service_consulting_desc: 'نساعدك في تطبيق الذكاء الاصطناعي في عملك',
-        consult: 'طلب استشارة',
-        service_development: 'تطوير حلول مخصصة',
-        service_development_desc: 'نبني لك حلول ذكاء اصطناعي حسب احتياجك',
-        request_offer: 'طلب عرض',
-        service_automation: 'أتمتة العمليات',
-        service_automation_desc: 'نقوم بأتمتة مهامك الروتينية بالذكاء الاصطناعي',
-        request_service: 'طلب خدمة',
-        footer_rights: 'جميع الحقوق محفوظة',
-        footer_privacy: 'سياسة الخصوصية',
-        footer_terms: 'شروط الخدمة'
-      },
-      en: {
-        nav_home: 'Home',
-        nav_courses: 'Courses',
-        nav_resources: 'Resources',
-        nav_analyzer: 'Site Analyzer',
-        nav_blog: 'Blog',
-        nav_about: 'About',
-        nav_contact: 'Contact',
-        nav_ideas: '💡 Creative Ideas',
-        nav_login: 'Login',
-        hero_title: 'The Leading AI Platform in the Arab World',
-        hero_desc: 'Discover the latest AI tools and products in one place',
-        hero_btn: 'Explore Now',
-        stat_support: '24/7 Support',
-        stat_trainees: 'Trainees',
-        stat_templates: 'Automation Templates',
-        stat_tools: 'AI Tools',
-        section_tools: 'AI Tools',
-        tool_chatgpt: 'ChatGPT',
-        tool_chatgpt_desc: 'Free AI writing and text generation tool',
-        try_now: 'Try Now',
-        tool_leonardo: 'Image Generation (Leonardo AI)',
-        tool_leonardo_desc: 'Generate professional images for free',
-        tool_runway: 'Video Generation (RunwayML)',
-        tool_runway_desc: 'Generate and edit videos with AI',
-        section_courses: 'Free Courses',
-        course_harvard: 'AI Basics Course',
-        course_harvard_desc: 'From Harvard University - Free with certificate',
-        register: 'Register',
-        course_stanford: 'Machine Learning Course',
-        course_stanford_desc: 'From Stanford University - Free',
-        course_google: 'AI Course from Google',
-        course_google_desc: 'With free completion certificate',
-        section_news: 'Latest News & Events',
-        news_chatgpt: 'ChatGPT-5 Launch',
-        news_chatgpt_desc: 'The latest ChatGPT release with revolutionary features',
-        read_more: 'Read More',
-        news_summit: 'AI Summit 2026',
-        news_summit_desc: 'The largest AI conference in the Middle East',
-        news_gemini: 'Google Launches Gemini Ultra',
-        news_gemini_desc: 'The latest AI model from Google',
-        section_services: 'AI Center Services',
-        service_consulting: 'AI Consulting',
-        service_consulting_desc: 'We help you apply AI in your business',
-        consult: 'Request Consultation',
-        service_development: 'Custom Solutions',
-        service_development_desc: 'We build AI solutions tailored to your needs',
-        request_offer: 'Request Offer',
-        service_automation: 'Process Automation',
-        service_automation_desc: 'Automate your routine tasks with AI',
-        request_service: 'Request Service',
-        footer_rights: 'All Rights Reserved',
-        footer_privacy: 'Privacy Policy',
-        footer_terms: 'Terms of Service'
-      }
-    };
-
-    let currentLang = localStorage.getItem('lang') || 'ar';
-
-    function changeLanguage(lang) {
-      currentLang = lang;
-      localStorage.setItem('lang', lang);
-      document.documentElement.lang = lang;
-      document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-
-      document.querySelectorAll('[data-key]').forEach(el => {
-        const key = el.getAttribute('data-key');
-        if (translations[lang] && translations[lang][key]) {
-          el.textContent = translations[lang][key];
-        }
-      });
-
-      const btn = document.getElementById('langToggle');
-      if (lang === 'ar') {
-        btn.textContent = '🇬🇧 English';
-      } else {
-        btn.textContent = '🇸🇦 العربية';
-      }
-    }
-
-    document.getElementById('langToggle').addEventListener('click', function() {
-      const newLang = currentLang === 'ar' ? 'en' : 'ar';
-      changeLanguage(newLang);
-    });
-
-    // تحميل اللغة المخزنة
-    changeLanguage(currentLang);
   </script>
-</body> 
+</body>
 </html>
