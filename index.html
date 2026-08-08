@@ -5,12 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>AI LEAD | منصة الذكاء الاصطناعي</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Segoe UI', Tahoma, sans-serif;
       background: #0B1120;
@@ -18,7 +13,6 @@
       line-height: 1.6;
       overflow-x: hidden;
     }
-
     #particles-canvas {
       position: fixed;
       top: 0;
@@ -29,7 +23,6 @@
       pointer-events: none;
       background: #0B1120;
     }
-
     .container {
       position: relative;
       z-index: 1;
@@ -37,7 +30,6 @@
       margin: 0 auto;
       padding: 0 20px;
     }
-
     .header {
       display: flex;
       justify-content: space-between;
@@ -47,7 +39,6 @@
       flex-wrap: wrap;
       gap: 10px;
     }
-
     .logo {
       font-size: 2rem;
       font-weight: 800;
@@ -55,19 +46,7 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-
-    .logo span {
-      font-weight: 300;
-      -webkit-text-fill-color: #94A3B8;
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
+    .logo span { font-weight: 300; -webkit-text-fill-color: #94A3B8; }
     .nav a {
       color: #94A3B8;
       text-decoration: none;
@@ -76,54 +55,29 @@
       font-size: 0.95rem;
       transition: 0.3s;
     }
-
-    .nav a:hover {
-      color: #38BDF8;
-    }
-
-    .lang-btn {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(37, 99, 235, 0.2);
-      color: #94A3B8;
-      padding: 6px 16px;
-      border-radius: 40px;
-      font-weight: 500;
-      font-size: 0.85rem;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .lang-btn:hover {
-      background: #2563EB;
-      color: #fff;
-      border-color: #2563EB;
-    }
-
+    .nav a:hover { color: #38BDF8; }
     .hero {
       text-align: center;
       padding: 60px 0 30px;
     }
-
     .hero h1 {
       font-size: 3.2rem;
       font-weight: 800;
       letter-spacing: -1px;
     }
-
     .hero h1 span {
       background: linear-gradient(135deg, #2563EB, #8B5CF6);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-
     .hero p {
       color: #94A3B8;
       font-size: 1.2rem;
       max-width: 600px;
       margin: 15px auto 30px;
     }
-
     .hero .btn {
+      display: inline-block;
       background: linear-gradient(135deg, #2563EB, #8B5CF6);
       border: none;
       padding: 14px 40px;
@@ -131,22 +85,19 @@
       color: #fff;
       font-weight: 700;
       font-size: 1rem;
-      cursor: pointer;
+      text-decoration: none;
       transition: 0.3s;
     }
-
     .hero .btn:hover {
       transform: scale(1.04);
       box-shadow: 0 0 40px rgba(37, 99, 235, 0.3);
     }
-
     .stats {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
       gap: 20px;
       margin: 40px 0;
     }
-
     .stat-card {
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid rgba(37, 99, 235, 0.1);
@@ -155,43 +106,34 @@
       text-align: center;
       transition: 0.3s;
     }
-
-    .stat-card:hover {
-      border-color: #2563EB;
-    }
-
+    .stat-card:hover { border-color: #2563EB; }
     .stat-card .num {
       font-size: 2.2rem;
       font-weight: 800;
       color: #38BDF8;
     }
-
     .stat-card .label {
       color: #94A3B8;
       font-size: 0.9rem;
       margin-top: 4px;
     }
-
     .section-title {
       font-size: 2rem;
       font-weight: 700;
       margin: 40px 0 20px;
       text-align: center;
     }
-
     .section-title span {
       background: linear-gradient(135deg, #2563EB, #8B5CF6);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 25px;
       margin-bottom: 40px;
     }
-
     .card {
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid rgba(37, 99, 235, 0.1);
@@ -200,76 +142,53 @@
       text-align: center;
       transition: 0.3s;
     }
-
     .card:hover {
       border-color: #2563EB;
       transform: translateY(-5px);
     }
-
     .card .icon {
       font-size: 2.4rem;
       display: block;
       margin-bottom: 10px;
     }
-
     .card h3 {
       font-size: 1.2rem;
       font-weight: 600;
     }
-
     .card p {
       color: #94A3B8;
       font-size: 0.95rem;
       margin: 8px 0 15px;
     }
-
     .card .btn-outline {
+      display: inline-block;
       background: transparent;
       border: 1px solid #2563EB;
       color: #38BDF8;
       padding: 8px 24px;
       border-radius: 40px;
       font-weight: 600;
-      cursor: pointer;
+      text-decoration: none;
       transition: 0.3s;
     }
-
     .card .btn-outline:hover {
       background: #2563EB;
       color: #fff;
     }
-
     .footer {
       border-top: 1px solid rgba(37, 99, 235, 0.08);
       padding: 25px 0;
       text-align: center;
       color: #64748B;
-      margin-top: 30px;
       font-size: 0.9rem;
     }
-
-    .footer span {
-      color: #38BDF8;
-    }
-
+    .footer span { color: #38BDF8; }
     @media (max-width: 700px) {
-      .header {
-        flex-direction: column;
-        align-items: center;
-        gap: 12px;
-      }
-      .nav {
-        justify-content: center;
-      }
-      .nav a {
-        margin: 0 8px;
-      }
-      .hero h1 {
-        font-size: 2.2rem;
-      }
-      .stats {
-        grid-template-columns: 1fr 1fr;
-      }
+      .header { flex-direction: column; align-items: center; gap: 12px; }
+      .nav { justify-content: center; flex-wrap: wrap; }
+      .nav a { margin: 0 8px; }
+      .hero h1 { font-size: 2.2rem; }
+      .stats { grid-template-columns: 1fr 1fr; }
     }
   </style>
 </head>
@@ -284,19 +203,19 @@
       <div class="nav">
         <a href="index.html">الرئيسية</a>
         <a href="courses.html">الدورات</a>
-        <a href="videos.html">الفيديوهات</a>
+        <a href="videos.html">الموارد</a>
         <a href="analyzer.html">تحليل الموقع</a>
+        <a href="blog.html">المدونة</a>
         <a href="about.html">من نحن</a>
-        <a href="#">تواصل</a>
+        <a href="contact.html">تواصل</a>
         <a href="login.html">تسجيل الدخول</a>
-        <button class="lang-btn" id="langToggle">🇬🇧 English</button>
       </div>
     </div>
 
     <div class="hero">
       <h1>🚀 <span>منصة الذكاء الاصطناعي الرائدة في العالم العربي</span></h1>
       <p>اكتشف أحدث أدوات ومنتجات الذكاء الاصطناعي في مكان واحد</p>
-      <button class="btn">استكشف الآن</button>
+      <a href="courses.html" class="btn">استكشف الآن</a>
     </div>
 
     <div class="stats">
@@ -308,44 +227,44 @@
 
     <h2 class="section-title">🏆 <span>أدوات الذكاء الاصطناعي المميزة</span></h2>
     <div class="grid-3">
-      <div class="card"><span class="icon">🤖</span><h3>ChatGPT</h3><p>أداة كتابة وتوليد نصوص</p><button class="btn-outline">تجربة</button></div>
-      <div class="card"><span class="icon">🎨</span><h3>Midjourney</h3><p>توليد صور احترافية</p><button class="btn-outline">تجربة</button></div>
-      <div class="card"><span class="icon">🎬</span><h3>Runway ML</h3><p>توليد وتحرير فيديوهات</p><button class="btn-outline">تجربة</button></div>
+      <div class="card"><span class="icon">🤖</span><h3>ChatGPT</h3><p>أداة كتابة وتوليد نصوص</p><a href="analyzer.html" class="btn-outline">تجربة</a></div>
+      <div class="card"><span class="icon">🎨</span><h3>Midjourney</h3><p>توليد صور احترافية</p><a href="analyzer.html" class="btn-outline">تجربة</a></div>
+      <div class="card"><span class="icon">🎬</span><h3>Runway ML</h3><p>توليد وتحرير فيديوهات</p><a href="analyzer.html" class="btn-outline">تجربة</a></div>
     </div>
 
     <h2 class="section-title">📘 <span>دروس تعليمية</span></h2>
     <div class="grid-3">
-      <div class="card"><span class="icon">📖</span><h3>مقدمة في الذكاء الاصطناعي</h3><p>تعلم الأساسيات</p><button class="btn-outline">اقرأ</button></div>
-      <div class="card"><span class="icon">📖</span><h3>تعلم الآلة</h3><p>شرح مبسط للتعلم الآلي</p><button class="btn-outline">اقرأ</button></div>
-      <div class="card"><span class="icon">📖</span><h3>أخلاقيات الذكاء الاصطناعي</h3><p>استخدام مسؤول</p><button class="btn-outline">اقرأ</button></div>
+      <div class="card"><span class="icon">📖</span><h3>مقدمة في الذكاء الاصطناعي</h3><p>تعلم الأساسيات</p><a href="blog.html" class="btn-outline">اقرأ</a></div>
+      <div class="card"><span class="icon">📖</span><h3>تعلم الآلة</h3><p>شرح مبسط للتعلم الآلي</p><a href="blog.html" class="btn-outline">اقرأ</a></div>
+      <div class="card"><span class="icon">📖</span><h3>أخلاقيات الذكاء الاصطناعي</h3><p>استخدام مسؤول</p><a href="blog.html" class="btn-outline">اقرأ</a></div>
     </div>
 
-    <h2 class="section-title">🎥 <span>مركز الفيديو التعليمي</span></h2>
+    <h2 class="section-title">🎥 <span>مركز الموارد التعليمية</span></h2>
     <div class="grid-3">
-      <div class="card"><span class="icon">▶️</span><h3>شرح ChatGPT للمبتدئين</h3><p>تعليمي · 15200 مشاهدة</p><button class="btn-outline">مشاهدة</button></div>
-      <div class="card"><span class="icon">▶️</span><h3>شرح Midjourney</h3><p>تعليمي · 8900 مشاهدة</p><button class="btn-outline">مشاهدة</button></div>
-      <div class="card"><span class="icon">▶️</span><h3>التسويق بالذكاء الاصطناعي</h3><p>تعليمي · 6200 مشاهدة</p><button class="btn-outline">مشاهدة</button></div>
+      <div class="card"><span class="icon">▶️</span><h3>شرح ChatGPT للمبتدئين</h3><p>تعليمي · 15200 مشاهدة</p><a href="videos.html" class="btn-outline">مشاهدة</a></div>
+      <div class="card"><span class="icon">▶️</span><h3>شرح Midjourney</h3><p>تعليمي · 8900 مشاهدة</p><a href="videos.html" class="btn-outline">مشاهدة</a></div>
+      <div class="card"><span class="icon">▶️</span><h3>التسويق بالذكاء الاصطناعي</h3><p>تعليمي · 6200 مشاهدة</p><a href="videos.html" class="btn-outline">مشاهدة</a></div>
     </div>
 
     <h2 class="section-title">🧑‍🏫 <span>الدورات والورش التدريبية</span></h2>
     <div class="grid-3">
-      <div class="card"><span class="icon">📊</span><h3>إدارة المشاريع بالذكاء الاصطناعي</h3><p>8 أسابيع · مشروع عملي</p><button class="btn-outline">سجل الآن</button></div>
-      <div class="card"><span class="icon">💻</span><h3>البرمجة بالذكاء الاصطناعي</h3><p>12 أسبوعاً · مشروع عملي</p><button class="btn-outline">سجل الآن</button></div>
-      <div class="card"><span class="icon">🎨</span><h3>التسويق الرقمي بالذكاء الاصطناعي</h3><p>6 أسابيع · مشروع عملي</p><button class="btn-outline">سجل الآن</button></div>
+      <div class="card"><span class="icon">📊</span><h3>إدارة المشاريع بالذكاء الاصطناعي</h3><p>8 أسابيع · مشروع عملي</p><a href="courses.html" class="btn-outline">سجل الآن</a></div>
+      <div class="card"><span class="icon">💻</span><h3>البرمجة بالذكاء الاصطناعي</h3><p>12 أسبوعاً · مشروع عملي</p><a href="courses.html" class="btn-outline">سجل الآن</a></div>
+      <div class="card"><span class="icon">🎨</span><h3>التسويق الرقمي بالذكاء الاصطناعي</h3><p>6 أسابيع · مشروع عملي</p><a href="courses.html" class="btn-outline">سجل الآن</a></div>
     </div>
 
     <h2 class="section-title">📰 <span>آخر الأخبار والتحديثات</span></h2>
     <div class="grid-3">
-      <div class="card"><span class="icon">📌</span><h3>إطلاق منصة AI LEAD</h3><p>نعلن عن إطلاق منصتنا الجديدة</p><button class="btn-outline">اقرأ المزيد</button></div>
-      <div class="card"><span class="icon">📌</span><h3>شراكة جديدة مع خبراء الذكاء الاصطناعي</h3><p>تعاون مع كبرى المؤسسات</p><button class="btn-outline">اقرأ المزيد</button></div>
-      <div class="card"><span class="icon">📌</span><h3>دورة مجانية في التسويق الرقمي</h3><p>سجل الآن في الدورة المجانية</p><button class="btn-outline">اقرأ المزيد</button></div>
+      <div class="card"><span class="icon">📌</span><h3>إطلاق منصة AI LEAD</h3><p>نعلن عن إطلاق منصتنا الجديدة</p><a href="blog.html" class="btn-outline">اقرأ المزيد</a></div>
+      <div class="card"><span class="icon">📌</span><h3>شراكة جديدة مع خبراء الذكاء الاصطناعي</h3><p>تعاون مع كبرى المؤسسات</p><a href="blog.html" class="btn-outline">اقرأ المزيد</a></div>
+      <div class="card"><span class="icon">📌</span><h3>دورة مجانية في التسويق الرقمي</h3><p>سجل الآن في الدورة المجانية</p><a href="courses.html" class="btn-outline">اقرأ المزيد</a></div>
     </div>
 
     <h2 class="section-title">🛠️ <span>خدمات مركز الذكاء الاصطناعي</span></h2>
     <div class="grid-3">
-      <div class="card"><span class="icon">⚙️</span><h3>استشارات الذكاء الاصطناعي</h3><p>نقدم استشارات متخصصة</p><button class="btn-outline">طلب استشارة</button></div>
-      <div class="card"><span class="icon">🧠</span><h3>تطوير حلول مخصصة</h3><p>نبني حلول ذكاء اصطناعي</p><button class="btn-outline">طلب عرض</button></div>
-      <div class="card"><span class="icon">🤖</span><h3>أتمتة العمليات</h3><p>أتمتة المهام الروتينية</p><button class="btn-outline">طلب خدمة</button></div>
+      <div class="card"><span class="icon">⚙️</span><h3>استشارات الذكاء الاصطناعي</h3><p>نقدم استشارات متخصصة</p><a href="contact.html" class="btn-outline">طلب استشارة</a></div>
+      <div class="card"><span class="icon">🧠</span><h3>تطوير حلول مخصصة</h3><p>نبني حلول ذكاء اصطناعي</p><a href="contact.html" class="btn-outline">طلب عرض</a></div>
+      <div class="card"><span class="icon">🤖</span><h3>أتمتة العمليات</h3><p>أتمتة المهام الروتينية</p><a href="contact.html" class="btn-outline">طلب خدمة</a></div>
     </div>
 
     <div class="footer">
@@ -418,11 +337,6 @@
     }
 
     draw();
-
-    // زر تبديل اللغة (تجريبي)
-    document.getElementById('langToggle').addEventListener('click', function() {
-      alert('🌐 سيتم إضافة الترجمة الفعلية قريباً!');
-    });
   </script>
 </body>
 </html>
