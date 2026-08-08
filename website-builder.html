@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>بناء موقعك بالذكاء الاصطناعي - AI LEAD</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: #0B1120;
+      color: #FFFFFF;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    #particles-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      background: #0B1120;
+    }
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(37, 99, 235, 0.15);
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .logo {
+      font-size: 2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #2563EB, #8B5CF6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .logo span { font-weight: 300; -webkit-text-fill-color: #94A3B8; }
+    .nav a {
+      color: #94A3B8;
+      text-decoration: none;
+      margin-right: 15px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: 0.3s;
+    }
+    .nav a:hover { color: #38BDF8; }
+    .lang-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(37, 99, 235, 0.2);
+      color: #94A3B8;
+      padding: 6px 16px;
+      border-radius: 40px;
+      font-weight: 500;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .lang-btn:hover {
+      background: #2563EB;
+      color: #fff;
+      border-color: #2563EB;
+    }
+    .page-title {
+      text-align: center;
+      padding: 40px 0 20px;
+    }
+    .page-title h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+    }
+    .page-title h1 span {
+      background: linear-gradient(135deg, #2563EB, #8B5CF6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .page-title p {
+      color: #94A3B8;
+      font-size: 1.1rem;
+      margin-top: 10px;
+    }
+    .price-box {
+      background: rgba(255,255,255,0.03);
+      border: 2px solid #2563EB;
+      border-radius: 24px;
+      padding: 30px;
+      text-align: center;
+      margin: 30px 0;
+    }
+    .price-box .price {
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: #38BDF8;
+    }
+    .price-box .currency {
+      font-size: 1.5rem;
+      color: #94A3B8;
+    }
+    .price-box .note {
+      color: #94A3B8;
+      margin-top: 8px;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+      margin: 30px 0;
+    }
+    .feature-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(37,99,235,0.08);
+      border-radius: 20px;
+      padding: 25px 20px;
+      text-align: center;
+    }
+    .feature-card .icon {
+      font-size: 2.4rem;
+      display: block;
+      margin-bottom: 10px;
+    }
+    .feature-card h3 {
+      font-size: 1.1rem;
+      color: #38BDF8;
+    }
+    .feature-card p {
+      color: #94A3B8;
+      font-size: 0.9rem;
+      margin-top: 4px;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #2563EB, #8B5CF6);
+      border: none;
+      padding: 16px 40px;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #fff;
+      text-decoration: none;
+      transition: 0.3s;
+      box-shadow: 0 0 30px rgba(37,99,235,0.2);
+      margin-top: 20px;
+    }
+    .cta-btn:hover {
+      transform: scale(1.04);
+      box-shadow: 0 0 50px rgba(37,99,235,0.4);
+    }
+    .footer {
+      border-top: 1px solid rgba(37,99,235,0.08);
+      padding: 25px 0;
+      text-align: center;
+      color: #64748B;
+      font-size: 0.9rem;
+      margin-top: 40px;
+    }
+    .footer span { color: #38BDF8; }
+    .footer a { color: #38BDF8; text-decoration: none; margin: 0 10px; }
+    @media (max-width: 700px) {
+      .header { flex-direction: column; align-items: center; gap: 12px; }
+      .nav { justify-content: center; flex-wrap: wrap; }
+      .nav a { margin: 0 8px; }
+      .page-title h1 { font-size: 2rem; }
+      .price-box .price { font-size: 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="particles-canvas"></canvas>
+
+  <div class="container">
+
+    <div class="header">
+      <div class="logo">AI <span>LEAD</span></div>
+      <div class="nav">
+        <a href="index.html">الرئيسية</a>
+        <a href="courses.html">الدورات</a>
+        <a href="videos.html">الموارد</a>
+        <a href="analyzer.html">تحليل الموقع</a>
+        <a href="blog.html">المدونة</a>
+        <a href="about.html">من نحن</a>
+        <a href="contact.html">تواصل</a>
+        <a href="ai-ideas.html">💡 أفكار إبداعية</a>
+        <a href="website-builder.html" style="color:#38BDF8; border:1px solid #2563EB; padding:6px 16px; border-radius:40px;">🚀 بناء مواقع</a>
+        <a href="login.html">تسجيل الدخول</a>
+        <button class="lang-btn">🇬🇧 English</button>
+      </div>
+    </div>
+
+    <div class="page-title">
+      <h1>🚀 <span>احصل على موقعك بالذكاء الاصطناعي</span></h1>
+      <p>موقع احترافي جاهز خلال 24 ساعة فقط</p>
+    </div>
+
+    <div class="price-box">
+      <div class="price">200 <span class="currency">جنيه مصري</span></div>
+      <div class="note">⚠️ عرض خاص لفترة محدودة - السعر شامل التصميم والنشر</div>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card"><span class="icon">🎨</span><h3>تصميم عصري</h3><p>شكل احترافي يناسب مجالك</p></div>
+      <div class="feature-card"><span class="icon">📱</span><h3>متجاوب مع الجوال</h3><p>يظهر بشكل مثالي على كل الأجهزة</p></div>
+      <div class="feature-card"><span class="icon">⚡</span><h3>نشر سريع</h3><p>موقعك على الإنترنت خلال 24 ساعة</p></div>
+      <div class="feature-card"><span class="icon">🔍</span><h3>تحسين SEO أساسي</h3><p>يظهر في محركات البحث</p></div>
+      <div class="feature-card"><span class="icon">📧</span><h3>نموذج تواصل</h3><p>يتيح للعملاء التواصل معك</p></div>
+      <div class="feature-card"><span class="icon">📝</span><h3>صفحات مخصصة</h3><p>حسب احتياجك (من 3 إلى 5 صفحات)</p></div>
+    </div>
+
+    <div style="text-align: center; margin: 30px 0;">
+      <a href="contact.html" class="cta-btn">📩 اطلب موقعك الآن</a>
+      <p style="color: #94A3B8; margin-top: 12px; font-size: 0.9rem;">أو تواصل عبر <a href="contact.html" style="color:#38BDF8;">صفحة التواصل</a></p>
+    </div>
+
+    <div class="footer">
+      <p>© 2026 <span>AI LEAD</span> — جميع الحقوق محفوظة</p>
+      <p style="margin-top: 8px;">
+        <a href="privacy.html">سياسة الخصوصية</a>
+        <a href="terms.html">شروط الخدمة</a>
+      </p>
+    </div>
+
+  </div>
+
+  <button onclick="window.scrollTo({top:0,behavior:'smooth'})" style="position:fixed;bottom:30px;left:30px;background:#2563EB;color:#fff;border:none;border-radius:50%;width:50px;height:50px;font-size:1.5rem;cursor:pointer;box-shadow:0 0 30px rgba(37,99,235,0.3);z-index:999;">↑</button>
+
+  <script>
+    const canvas = document.getElementById('particles-canvas');
+    const ctx = canvas.getContext('2d');
+    let w, h;
+
+    function resize() {
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener('resize', resize);
+    resize();
+
+    const particles = [];
+
+    for (let i = 0; i < 60; i++) {
+      particles.push({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        size: Math.random() * 2.5 + 1,
+        speedX: (Math.random() - 0.5) * 0.3,
+        speedY: (Math.random() - 0.5) * 0.3,
+        color: `hsl(${Math.random() * 60 + 210}, 80%, 60%)`
+      });
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, w, h);
+
+      particles.forEach(p => {
+        p.x += p.speedX;
+        p.y += p.speedY;
+
+        if (p.x < 0 || p.x > w) p.speedX *= -1;
+        if (p.y < 0 || p.y > h) p.speedY *= -1;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = p.color;
+        ctx.shadowColor = 'rgba(56, 189, 248, 0.2)';
+        ctx.shadowBlur = 15;
+        ctx.fill();
+      });
+
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 120) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(56, 189, 248, ${0.06 * (1 - dist / 120)})`;
+            ctx.lineWidth = 1;
+            ctx.stroke();
+          }
+        }
+      }
+
+      requestAnimationFrame(draw);
+    }
+
+    draw();
+  </script>
+</body>
+</html>
