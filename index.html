@@ -59,6 +59,22 @@
       transition: 0.3s;
     }
     .nav a:hover { color: #38BDF8; }
+    .lang-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(37, 99, 235, 0.2);
+      color: #94A3B8;
+      padding: 6px 16px;
+      border-radius: 40px;
+      font-weight: 500;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .lang-btn:hover {
+      background: #2563EB;
+      color: #fff;
+      border-color: #2563EB;
+    }
     .hero {
       text-align: center;
       padding: 60px 0 30px;
@@ -214,6 +230,7 @@
         <a href="contact.html">تواصل</a>
         <a href="ai-ideas.html">💡 أفكار إبداعية</a>
         <a href="login.html">تسجيل الدخول</a>
+        <button class="lang-btn" id="langToggle">🇬🇧 English</button>
       </div>
     </div>
 
@@ -334,6 +351,11 @@
     }
 
     draw();
+
+    // زر تبديل اللغة
+    document.getElementById('langToggle').addEventListener('click', function() {
+      alert('🌐 سيتم إضافة الترجمة الفعلية قريباً!');
+    });
   </script>
 </body>
 </html>
