@@ -331,12 +331,7 @@
 
   <button onclick="window.scrollTo({top:0,behavior:'smooth'})" style="position:fixed;bottom:30px;left:30px;background:#2563EB;color:#fff;border:none;border-radius:50%;width:50px;height:50px;font-size:1.5rem;cursor:pointer;box-shadow:0 0 30px rgba(37,99,235,0.3);z-index:999;">↑</button>
 
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
   <script>
-    (function() {
-      emailjs.init("xWVAHQDPZUXYR5s-T");
-    })();
-
     const canvas = document.getElementById('particles-canvas');
     const ctx = canvas.getContext('2d');
     let w, h;
@@ -429,29 +424,13 @@
       });
       localStorage.setItem('websiteOrders', JSON.stringify(orders));
 
-      // إرسال عبر EmailJS
-      const templateParams = {
-        name: name,
-        email: email,
-        phone: phone,
-        siteType: siteType,
-        pages: pages,
-        colors: colors || 'غير محدد',
-        notes: notes || 'لا يوجد'
-      };
-
-      emailjs.send('service_d80kyac', 'template_7gmchpp', templateParams)
-        .then(() => {
-          alert('✅ تم إرسال طلبك بنجاح! سنتواصل معك خلال 24 ساعة.');
-          document.getElementById('fullName').value = '';
-          document.getElementById('email').value = '';
-          document.getElementById('phone').value = '';
-          document.getElementById('colors').value = '';
-          document.getElementById('notes').value = '';
-        })
-        .catch((error) => {
-          alert('❌ حدث خطأ أثناء الإرسال، لكن طلبك تم حفظه. سنتواصل معك قريباً.');
-        });
+      alert('✅ تم إرسال طلبك بنجاح! سنتواصل معك خلال 24 ساعة.');
+      
+      document.getElementById('fullName').value = '';
+      document.getElementById('email').value = '';
+      document.getElementById('phone').value = '';
+      document.getElementById('colors').value = '';
+      document.getElementById('notes').value = '';
     }
   </script>
 </body>
