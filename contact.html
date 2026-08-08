@@ -265,10 +265,14 @@
 
   <button onclick="window.scrollTo({top:0,behavior:'smooth'})" style="position:fixed;bottom:30px;left:30px;background:#2563EB;color:#fff;border:none;border-radius:50%;width:50px;height:50px;font-size:1.5rem;cursor:pointer;box-shadow:0 0 30px rgba(37,99,235,0.3);z-index:999;">↑</button>
 
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-  <script>
+  <!-- EmailJS SDK بالإصدار الجديد -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+  </script>
+  <script type="text/javascript">
     (function() {
-      emailjs.init("xWVAHQDPZUXYR5s-T");
+      emailjs.init({
+        publicKey: "xWVAHQDPZUXYR5s-T",
+      });
     })();
 
     const canvas = document.getElementById('particles-canvas');
