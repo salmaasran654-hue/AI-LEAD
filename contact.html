@@ -250,11 +250,6 @@
           <h3>البريد الإلكتروني</h3>
           <p><a href="mailto:rtificialintelligencewebsite22@gmail.com">rtificialintelligencewebsite22@gmail.com</a></p>
         </div>
-        <div class="info-card" style="border-color: #2563EB;">
-          <span class="icon">📥</span>
-          <h3>صندوق الوارد</h3>
-          <p><a href="inbox.html" style="color: #38BDF8;">👀 عرض جميع الرسائل</a></p>
-        </div>
       </div>
     </div>
 
@@ -270,7 +265,12 @@
 
   <button onclick="window.scrollTo({top:0,behavior:'smooth'})" style="position:fixed;bottom:30px;left:30px;background:#2563EB;color:#fff;border:none;border-radius:50%;width:50px;height:50px;font-size:1.5rem;cursor:pointer;box-shadow:0 0 30px rgba(37,99,235,0.3);z-index:999;">↑</button>
 
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
   <script>
+    (function() {
+      emailjs.init("FZol-dAfdkL_hUeAw");
+    })();
+
     const canvas = document.getElementById('particles-canvas');
     const ctx = canvas.getContext('2d');
     let w, h;
@@ -346,31 +346,29 @@
         return;
       }
 
-      // حفظ الرسالة في Local Storage
-      const messages = JSON.parse(localStorage.getItem('contactMessages') || '[]');
-      messages.push({
-        name,
-        email,
-        subject,
-        message,
-        date: new Date().toLocaleString()
-      });
-      localStorage.setItem('contactMessages', JSON.stringify(messages));
+      const templateParams = {
+        name: name,
+        email: email,
+        subject: subject,
+        message: message
+      };
 
-      // إظهار رسالة الحب
-      const popup = document.getElementById('popup');
-      popup.classList.add('show');
-
-      // تفريغ الحقول
-      document.getElementById('nameInput').value = '';
-      document.getElementById('emailInput').value = '';
-      document.getElementById('subjectInput').value = '';
-      document.getElementById('messageInput').value = '';
-
-      // إخفاء الرسالة بعد 5 ثواني
-      setTimeout(() => {
-        popup.classList.remove('show');
-      }, 5000);
+      // باستخدام Service ID و Template ID بتوعك
+      emailjs.send('service_d80kyac', 'template_7gmchpp', templateParams)
+        .then(() => {
+          const popup = document.getElementById('popup');
+          popup.classList.add('show');
+          document.getElementById('nameInput').value = '';
+          document.getElementById('emailInput').value = '';
+          document.getElementById('subjectInput').value = '';
+          document.getElementById('messageInput').value = '';
+          setTimeout(() => {
+            popup.classList.remove('show');
+          }, 5000);
+        })
+        .catch((error) => {
+          alert('❌ حدث خطأ أثناء الإرسال: ' + error.text);
+        });
     }
   </script>
 </body>
