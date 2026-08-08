@@ -122,6 +122,18 @@
       color: #94A3B8;
       margin-top: 8px;
     }
+    .delivery-note {
+      background: rgba(56, 189, 248, 0.05);
+      border: 1px solid rgba(56, 189, 248, 0.15);
+      border-radius: 16px;
+      padding: 16px 24px;
+      margin: 20px 0;
+      text-align: center;
+      color: #94A3B8;
+    }
+    .delivery-note strong {
+      color: #38BDF8;
+    }
     .features-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -149,23 +161,59 @@
       font-size: 0.9rem;
       margin-top: 4px;
     }
-    .cta-btn {
-      display: inline-block;
+    .order-form {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(37,99,235,0.1);
+      border-radius: 24px;
+      padding: 30px;
+      margin: 30px 0;
+    }
+    .order-form label {
+      display: block;
+      color: #94A3B8;
+      font-weight: 600;
+      margin-top: 16px;
+      margin-bottom: 4px;
+    }
+    .order-form input, .order-form textarea, .order-form select {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(37,99,235,0.15);
+      background: rgba(255,255,255,0.04);
+      color: #fff;
+      font-size: 1rem;
+      outline: none;
+      transition: 0.3s;
+    }
+    .order-form input:focus, .order-form textarea:focus, .order-form select:focus {
+      border-color: #2563EB;
+      box-shadow: 0 0 20px rgba(37,99,235,0.1);
+    }
+    .order-form textarea {
+      height: 120px;
+      resize: vertical;
+    }
+    .order-form select option {
+      background: #0B1120;
+      color: #fff;
+    }
+    .order-form .btn-submit {
       background: linear-gradient(135deg, #2563EB, #8B5CF6);
       border: none;
-      padding: 16px 40px;
+      padding: 14px 36px;
       border-radius: 60px;
       font-weight: 700;
-      font-size: 1.1rem;
+      font-size: 1rem;
       color: #fff;
-      text-decoration: none;
+      cursor: pointer;
       transition: 0.3s;
-      box-shadow: 0 0 30px rgba(37,99,235,0.2);
       margin-top: 20px;
+      width: 100%;
     }
-    .cta-btn:hover {
-      transform: scale(1.04);
-      box-shadow: 0 0 50px rgba(37,99,235,0.4);
+    .order-form .btn-submit:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 30px rgba(37,99,235,0.3);
     }
     .footer {
       border-top: 1px solid rgba(37,99,235,0.08);
@@ -177,18 +225,6 @@
     }
     .footer span { color: #38BDF8; }
     .footer a { color: #38BDF8; text-decoration: none; margin: 0 10px; }
-    .delivery-note {
-      background: rgba(56, 189, 248, 0.05);
-      border: 1px solid rgba(56, 189, 248, 0.15);
-      border-radius: 16px;
-      padding: 16px 24px;
-      margin: 20px 0;
-      text-align: center;
-      color: #94A3B8;
-    }
-    .delivery-note strong {
-      color: #38BDF8;
-    }
     @media (max-width: 700px) {
       .header { flex-direction: column; align-items: center; gap: 12px; }
       .nav { justify-content: center; flex-wrap: wrap; }
@@ -244,9 +280,43 @@
       <div class="feature-card"><span class="icon">📝</span><h3>صفحات مخصصة</h3><p>حسب احتياجك (من 3 إلى 5 صفحات)</p></div>
     </div>
 
-    <div style="text-align: center; margin: 30px 0;">
-      <a href="contact.html" class="cta-btn">📩 اطلب موقعك الآن</a>
-      <p style="color: #94A3B8; margin-top: 12px; font-size: 0.9rem;">أو تواصل عبر <a href="contact.html" style="color:#38BDF8;">صفحة التواصل</a></p>
+    <div class="order-form">
+      <h2 style="color: #38BDF8; text-align: center; margin-bottom: 10px;">📋 نموذج طلب الموقع</h2>
+      <p style="color: #94A3B8; text-align: center; margin-bottom: 20px;">املأ البيانات وسنرد عليك خلال 24 ساعة</p>
+
+      <label>الاسم بالكامل *</label>
+      <input type="text" id="fullName" placeholder="مثال: أحمد محمد" />
+
+      <label>البريد الإلكتروني *</label>
+      <input type="email" id="email" placeholder="example@gmail.com" />
+
+      <label>رقم الهاتف (واتساب) *</label>
+      <input type="text" id="phone" placeholder="+20 100 123 4567" />
+
+      <label>نوع الموقع *</label>
+      <select id="siteType">
+        <option value="شركة">موقع شركة</option>
+        <option value="متجر">متجر إلكتروني</option>
+        <option value="مدونة">مدونة</option>
+        <option value="خدمة">موقع خدمي</option>
+        <option value="شخصي">موقع شخصي</option>
+        <option value="أخرى">أخرى</option>
+      </select>
+
+      <label>عدد الصفحات المطلوبة *</label>
+      <select id="pagesCount">
+        <option value="3">3 صفحات</option>
+        <option value="4">4 صفحات</option>
+        <option value="5">5 صفحات</option>
+      </select>
+
+      <label>الألوان المفضلة (اختياري)</label>
+      <input type="text" id="colors" placeholder="مثال: أزرق داكن + أبيض" />
+
+      <label>أي ملاحظات إضافية؟</label>
+      <textarea id="notes" placeholder="اكتب أي تفاصيل إضافية عن موقعك..."></textarea>
+
+      <button class="btn-submit" onclick="sendOrder()">📩 إرسال الطلب</button>
     </div>
 
     <div class="footer">
@@ -325,6 +395,46 @@
     }
 
     draw();
+
+    function sendOrder() {
+      const name = document.getElementById('fullName').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const siteType = document.getElementById('siteType').value;
+      const pages = document.getElementById('pagesCount').value;
+      const colors = document.getElementById('colors').value.trim();
+      const notes = document.getElementById('notes').value.trim();
+
+      if (!name || !email || !phone) {
+        alert('❌ الرجاء ملء الحقول المطلوبة (الاسم، البريد، الهاتف)');
+        return;
+      }
+
+      const message = `✅ طلب موقع جديد:\n\nالاسم: ${name}\nالبريد: ${email}\nالهاتف: ${phone}\nنوع الموقع: ${siteType}\nعدد الصفحات: ${pages}\nالألوان: ${colors || 'غير محدد'}\nملاحظات: ${notes || 'لا يوجد'}`;
+
+      // حفظ في Local Storage
+      const orders = JSON.parse(localStorage.getItem('websiteOrders') || '[]');
+      orders.push({
+        name,
+        email,
+        phone,
+        siteType,
+        pages,
+        colors,
+        notes,
+        date: new Date().toLocaleString()
+      });
+      localStorage.setItem('websiteOrders', JSON.stringify(orders));
+
+      alert('✅ تم إرسال طلبك بنجاح! سنتواصل معك خلال 24 ساعة.');
+      
+      // تفريغ الحقول
+      document.getElementById('fullName').value = '';
+      document.getElementById('email').value = '';
+      document.getElementById('phone').value = '';
+      document.getElementById('colors').value = '';
+      document.getElementById('notes').value = '';
+    }
   </script>
 </body>
 </html>
