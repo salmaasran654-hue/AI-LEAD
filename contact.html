@@ -163,6 +163,39 @@
     }
     .footer span { color: #38BDF8; }
     .footer a { color: #38BDF8; text-decoration: none; margin: 0 10px; }
+    .msg-popup {
+      display: none;
+      background: rgba(37, 99, 235, 0.15);
+      border: 1px solid #2563EB;
+      border-radius: 16px;
+      padding: 20px 24px;
+      margin-top: 18px;
+      text-align: center;
+    }
+    .msg-popup.show { display: block; }
+    .msg-popup .heart {
+      font-size: 3rem;
+      animation: heartbeat 1.2s infinite;
+      display: block;
+      margin-bottom: 6px;
+    }
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      14% { transform: scale(1.2); }
+      28% { transform: scale(1); }
+      42% { transform: scale(1.2); }
+      70% { transform: scale(1); }
+    }
+    .msg-popup .love-text {
+      color: #38BDF8;
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+    .msg-popup .sub-text {
+      color: #94A3B8;
+      font-size: 0.95rem;
+      margin-top: 4px;
+    }
     @media (max-width: 700px) {
       .header { flex-direction: column; align-items: center; gap: 12px; }
       .nav { justify-content: center; flex-wrap: wrap; }
@@ -203,7 +236,12 @@
         <input type="email" placeholder="البريد الإلكتروني" id="emailInput" />
         <input type="text" placeholder="الموضوع" id="subjectInput" />
         <textarea placeholder="اكتب رسالتك..." id="messageInput"></textarea>
-        <button onclick="sendEmail()">إرسال</button>
+        <button onclick="sendMessage()">إرسال</button>
+        <div class="msg-popup" id="popup">
+          <span class="heart">🫶</span>
+          <div class="love-text">شكراً لك، نحبك! 💙</div>
+          <div class="sub-text">سيتم الرد على رسالتك قريباً</div>
+        </div>
       </div>
 
       <div class="contact-info">
@@ -211,6 +249,11 @@
           <span class="icon">📧</span>
           <h3>البريد الإلكتروني</h3>
           <p><a href="mailto:rtificialintelligencewebsite22@gmail.com">rtificialintelligencewebsite22@gmail.com</a></p>
+        </div>
+        <div class="info-card" style="border-color: #2563EB;">
+          <span class="icon">📥</span>
+          <h3>صندوق الوارد</h3>
+          <p><a href="inbox.html" style="color: #38BDF8;">👀 عرض جميع الرسائل</a></p>
         </div>
       </div>
     </div>
@@ -292,7 +335,7 @@
 
     draw();
 
-    function sendEmail() {
+    function sendMessage() {
       const name = document.getElementById('nameInput').value.trim();
       const email = document.getElementById('emailInput').value.trim();
       const subject = document.getElementById('subjectInput').value.trim();
@@ -303,8 +346,31 @@
         return;
       }
 
-      const mailtoLink = `mailto:rtificialintelligencewebsite22@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`الاسم: ${name}\nالبريد: ${email}\n\nالرسالة:\n${message}`)}`;
-      window.open(mailtoLink, '_blank');
+      // حفظ الرسالة في Local Storage
+      const messages = JSON.parse(localStorage.getItem('contactMessages') || '[]');
+      messages.push({
+        name,
+        email,
+        subject,
+        message,
+        date: new Date().toLocaleString()
+      });
+      localStorage.setItem('contactMessages', JSON.stringify(messages));
+
+      // إظهار رسالة الحب
+      const popup = document.getElementById('popup');
+      popup.classList.add('show');
+
+      // تفريغ الحقول
+      document.getElementById('nameInput').value = '';
+      document.getElementById('emailInput').value = '';
+      document.getElementById('subjectInput').value = '';
+      document.getElementById('messageInput').value = '';
+
+      // إخفاء الرسالة بعد 5 ثواني
+      setTimeout(() => {
+        popup.classList.remove('show');
+      }, 5000);
     }
   </script>
 </body>
