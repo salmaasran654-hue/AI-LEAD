@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>لوحة التحكم - AI Hub Egypt</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f9f6f5;
+      color: #2d1b1b;
+    }
+    .header {
+      background: #6b1d2b;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .logo { font-size: 2rem; font-weight: bold; color: white; }
+    .logo span { color: #f5c6c6; }
+    .nav a {
+      color: #f5e1e1;
+      text-decoration: none;
+      margin-right: 25px;
+      font-weight: 500;
+    }
+    .nav a:hover { color: white; }
+    .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+    .welcome {
+      background: white;
+      padding: 30px 35px;
+      border-radius: 28px;
+      border-right: 6px solid #6b1d2b;
+    }
+    .welcome h2 { font-size: 2rem; color: #6b1d2b; }
+    .welcome p { color: #4d3a3a; font-size: 1.1rem; margin-top: 8px; }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 25px;
+      margin-top: 40px;
+    }
+    .stat-card {
+      background: white;
+      padding: 25px 20px;
+      border-radius: 24px;
+      text-align: center;
+      border: 1px solid #f0e6e6;
+    }
+    .stat-card .number { font-size: 2.8rem; font-weight: bold; color: #6b1d2b; }
+    .stat-card .label { color: #4d3a3a; margin-top: 6px; }
+    .footer {
+      background: #6b1d2b;
+      padding: 20px;
+      text-align: center;
+      color: #f5e1e1;
+      margin-top: 50px;
+    }
+    .footer span { color: #f5c6c6; }
+    .logout-btn {
+      background: white;
+      color: #6b1d2b;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 40px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="logo">🤖 AI <span>Hub Egypt</span></div>
+    <div class="nav">
+      <a href="index.html">الرئيسية</a>
+      <a href="favorites.html">المفضلة</a>
+      <button class="logout-btn" id="logoutBtn">تسجيل الخروج</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="welcome">
+      <h2 id="userName">👋 مرحباً، </h2>
+      <p>نرحب بعودتك إلى منصة AI Hub Egypt</p>
+    </div>
+
+    <div class="stats">
+      <div class="stat-card"><div class="number">12</div><div class="label">الأدوات المستخدمة</div></div>
+      <div class="stat-card"><div class="number">5</div><div class="label">المفضلة</div></div>
+      <div class="stat-card"><div class="number">8</div><div class="label">التقييمات</div></div>
+      <div class="stat-card"><div class="number">3</div><div class="label">مقالات كتبتها</div></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    © 2026 <span>AI Hub Egypt</span> — جميع الحقوق محفوظة
+  </div>
+
+  <script>
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (!currentUser) {
+      window.location.href = 'login.html';
+    } else {
+      document.getElementById('userName').textContent = '👋 مرحباً، ' + currentUser.name;
+    }
+
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+      localStorage.removeItem('currentUser');
+      window.location.href = 'login.html';
+    });
+  </script>
+</body>
+</html>

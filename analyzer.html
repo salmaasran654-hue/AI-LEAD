@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>تحليل الموقع - AI LEAD</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', 'Segoe UI', Tahoma, sans-serif;
+      background: #0B1120;
+      color: #FFFFFF;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    #particles-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      background: #0B1120;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 30px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(37, 99, 235, 0.12);
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #2563EB, #8B5CF6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .logo span {
+      font-weight: 300;
+      -webkit-text-fill-color: #94A3B8;
+    }
+
+    .nav a {
+      color: #94A3B8;
+      text-decoration: none;
+      margin-right: 28px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: 0.3s;
+    }
+
+    .nav a:hover {
+      color: #38BDF8;
+    }
+
+    .nav .btn-primary {
+      background: #2563EB;
+      color: white;
+      padding: 10px 24px;
+      border-radius: 40px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .nav .btn-primary:hover {
+      background: #1D4ED8;
+      box-shadow: 0 0 24px rgba(37, 99, 235, 0.3);
+    }
+
+    .page-title {
+      text-align: center;
+      padding: 50px 0 20px;
+    }
+
+    .page-title h1 {
+      font-size: 3rem;
+      font-weight: 800;
+    }
+
+    .page-title h1 span {
+      background: linear-gradient(135deg, #2563EB, #8B5CF6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .page-title p {
+      color: #94A3B8;
+      font-size: 1.1rem;
+      margin-top: 10px;
+    }
+
+    .analyzer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 25px;
+      padding: 30px 0 50px;
+    }
+
+    .analyzer-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(37, 99, 235, 0.1);
+      border-radius: 24px;
+      padding: 30px 20px;
+      text-align: center;
+      transition: 0.3s;
+      backdrop-filter: blur(4px);
+    }
+
+    .analyzer-card:hover {
+      border-color: #2563EB;
+      transform: translateY(-5px);
+    }
+
+    .analyzer-card .score {
+      font-size: 3.2rem;
+      font-weight: 800;
+      color: #38BDF8;
+    }
+
+    .analyzer-card .label {
+      color: #94A3B8;
+      font-size: 0.95rem;
+      margin-top: 6px;
+    }
+
+    .analyzer-card .bar {
+      width: 100%;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      margin-top: 14px;
+      overflow: hidden;
+    }
+
+    .analyzer-card .bar .fill {
+      height: 100%;
+      border-radius: 10px;
+      background: linear-gradient(90deg, #2563EB, #8B5CF6);
+      width: 0%;
+    }
+
+    .input-section {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(37, 99, 235, 0.1);
+      border-radius: 24px;
+      padding: 30px;
+      margin: 20px 0 40px;
+      text-align: center;
+    }
+
+    .input-section input {
+      width: 70%;
+      padding: 14px 20px;
+      border-radius: 60px;
+      border: 1px solid rgba(37, 99, 235, 0.2);
+      background: rgba(255, 255, 255, 0.05);
+      color: white;
+      font-size: 1rem;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    .input-section input:focus {
+      border-color: #2563EB;
+      box-shadow: 0 0 20px rgba(37, 99, 235, 0.1);
+    }
+
+    .input-section input::placeholder {
+      color: #64748B;
+    }
+
+    .input-section button {
+      background: linear-gradient(135deg, #2563EB, #8B5CF6);
+      border: none;
+      padding: 14px 36px;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 1rem;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-right: 12px;
+    }
+
+    .input-section button:hover {
+      transform: scale(1.04);
+      box-shadow: 0 0 30px rgba(37, 99, 235, 0.3);
+    }
+
+    .footer {
+      border-top: 1px solid rgba(37, 99, 235, 0.08);
+      padding: 28px 0;
+      margin-top: 30px;
+      text-align: center;
+      color: #64748B;
+      font-size: 0.9rem;
+    }
+
+    .footer span {
+      color: #38BDF8;
+    }
+
+    @media (max-width: 700px) {
+      .header {
+        flex-wrap: wrap;
+        gap: 14px;
+        justify-content: center;
+      }
+      .nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: center;
+      }
+      .nav a {
+        margin-right: 0;
+      }
+      .page-title h1 {
+        font-size: 2.2rem;
+      }
+      .input-section input {
+        width: 100%;
+        margin-bottom: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="particles-canvas"></canvas>
+
+  <div class="container">
+
+    <div class="header">
+      <div class="logo">AI <span>LEAD</span></div>
+      <div class="nav">
+        <a href="index.html">الرئيسية</a>
+        <a href="courses.html">الدورات</a>
+        <a href="videos.html">الفيديوهات</a>
+        <a href="analyzer.html">تحليل الموقع</a>
+        <a href="#">تواصل</a>
+        <a href="login.html" class="btn-primary">تسجيل الدخول</a>
+      </div>
+    </div>
+
+    <div class="page-title">
+      <h1>📊 <span>تحليل ظهور موقعك</span></h1>
+      <p>SEO · AI Visibility · E-E-A-T · GEO — تقرير شامل لموقعك</p>
+    </div>
+
+    <div class="input-section">
+      <input type="text" placeholder="🔗 أدخل رابط موقعك للتحليل..." />
+      <button>تحليل الآن</button>
+    </div>
+
+    <div class="analyzer-grid">
+      <div class="analyzer-card">
+        <div class="score">85</div>
+        <div class="label">SEO Score</div>
+        <div class="bar"><div class="fill" style="width:85%"></div></div>
+      </div>
+      <div class="analyzer-card">
+        <div class="score">72</div>
+        <div class="label">AI Visibility</div>
+        <div class="bar"><div class="fill" style="width:72%"></div></div>
+      </div>
+      <div class="analyzer-card">
+        <div class="score">78</div>
+        <div class="label">E-E-A-T Score</div>
+        <div class="bar"><div class="fill" style="width:78%"></div></div>
+      </div>
+      <div class="analyzer-card">
+        <div class="score">65</div>
+        <div class="label">GEO Score</div>
+        <div class="bar"><div class="fill" style="width:65%"></div></div>
+      </div>
+    </div>
+
+    <div class="footer">
+      © 2026 <span>AI LEAD</span> — جميع الحقوق محفوظة
+    </div>
+
+  </div>
+
+  <script>
+    const canvas = document.getElementById('particles-canvas');
+    const ctx = canvas.getContext('2d');
+    let w, h;
+
+    function resize() {
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener('resize', resize);
+    resize();
+
+    const particles = [];
+
+    for (let i = 0; i < 120; i++) {
+      particles.push({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        size: Math.random() * 3 + 1,
+        speedX: (Math.random() - 0.5) * 0.4,
+        speedY: (Math.random() - 0.5) * 0.4,
+        opacity: Math.random() * 0.6 + 0.2,
+        color: `hsl(${Math.random() * 60 + 210}, 80%, 60%)`
+      });
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, w, h);
+
+      particles.forEach(p => {
+        p.x += p.speedX;
+        p.y += p.speedY;
+
+        if (p.x < 0 || p.x > w) p.speedX *= -1;
+        if (p.y < 0 || p.y > h) p.speedY *= -1;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = p.color;
+        ctx.shadowColor = 'rgba(56, 189, 248, 0.3)';
+        ctx.shadowBlur = 20;
+        ctx.fill();
+      });
+
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 150) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(56, 189, 248, ${0.08 * (1 - dist / 150)})`;
+            ctx.lineWidth = 1;
+            ctx.stroke();
+          }
+        }
+      }
+
+      requestAnimationFrame(draw);
+    }
+
+    draw();
+  </script>
+</body>
+</html>

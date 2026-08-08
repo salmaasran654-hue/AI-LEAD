@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>من نحن - AI LEAD</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: #0B1120;
+      color: #FFFFFF;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(37, 99, 235, 0.15);
+    }
+    .logo {
+      font-size: 2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #2563EB, #8B5CF6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .logo span {
+      font-weight: 300;
+      -webkit-text-fill-color: #94A3B8;
+    }
+    .nav a {
+      color: #94A3B8;
+      text-decoration: none;
+      margin-right: 20px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: 0.3s;
+    }
+    .nav a:hover { color: #38BDF8; }
+    .page-title {
+      text-align: center;
+      padding: 50px 0 20px;
+    }
+    .page-title h1 {
+      font-size: 3rem;
+      font-weight: 800;
+    }
+    .page-title h1 span {
+      background: linear-gradient(135deg, #2563EB, #8B5CF6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .page-title p {
+      color: #94A3B8;
+      font-size: 1.1rem;
+      margin-top: 10px;
+    }
+    .about-content {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(37,99,235,0.1);
+      border-radius: 24px;
+      padding: 40px 30px;
+      margin: 30px 0 50px;
+    }
+    .about-content h2 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      color: #38BDF8;
+    }
+    .about-content p {
+      color: #94A3B8;
+      font-size: 1.05rem;
+      margin-bottom: 20px;
+    }
+    .values {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+    .value-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(37,99,235,0.08);
+      border-radius: 20px;
+      padding: 25px 20px;
+      text-align: center;
+    }
+    .value-card .icon {
+      font-size: 2.4rem;
+      display: block;
+      margin-bottom: 10px;
+    }
+    .value-card h3 {
+      font-size: 1.2rem;
+      color: #38BDF8;
+    }
+    .value-card p {
+      color: #94A3B8;
+      font-size: 0.95rem;
+      margin-top: 6px;
+    }
+    .footer {
+      border-top: 1px solid rgba(37,99,235,0.08);
+      padding: 25px 0;
+      text-align: center;
+      color: #64748B;
+      font-size: 0.9rem;
+    }
+    .footer span { color: #38BDF8; }
+    @media (max-width: 700px) {
+      .header { flex-wrap: wrap; gap: 10px; justify-content: center; }
+      .nav a { margin: 0 10px; }
+      .page-title h1 { font-size: 2.2rem; }
+      .about-content { padding: 25px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header">
+      <div class="logo">AI <span>LEAD</span></div>
+      <div class="nav">
+        <a href="index.html">الرئيسية</a>
+        <a href="courses.html">الدورات</a>
+        <a href="videos.html">الفيديوهات</a>
+        <a href="analyzer.html">تحليل الموقع</a>
+        <a href="about.html">من نحن</a>
+        <a href="#">تواصل</a>
+        <a href="login.html">تسجيل الدخول</a>
+      </div>
+    </div>
+
+    <div class="page-title">
+      <h1>📖 <span>من نحن</span></h1>
+      <p>نصنع المستقبل بالذكاء الاصطناعي</p>
+    </div>
+
+    <div class="about-content">
+      <h2>🚀 رؤيتنا</h2>
+      <p>نهدف إلى جعل الذكاء الاصطناعي في متناول الجميع، من خلال منصة عربية متكاملة تجمع أفضل الأدوات، والدروس، والخدمات في مكان واحد.</p>
+
+      <h2>💡 رسالتنا</h2>
+      <p>تمكين الأفراد والشركات من استخدام أدوات الذكاء الاصطناعي بسهولة وفعالية، لزيادة الإنتاجية والإبداع في مجالاتهم المختلفة.</p>
+
+      <h2>🌟 قيمنا</h2>
+      <div class="values">
+        <div class="value-card"><span class="icon">🤝</span><h3>الثقة</h3><p>نقدم محتوى موثوقاً وشفافاً</p></div>
+        <div class="value-card"><span class="icon">💡</span><h3>الإبداع</h3><p>نشجع التفكير المبتكر</p></div>
+        <div class="value-card"><span class="icon">📚</span><h3>التعليم</h3><p>نصنع محتوى تعليمي متميز</p></div>
+        <div class="value-card"><span class="icon">🌍</span><h3>الشمولية</h3><p>نخدم المجتمع العربي كله</p></div>
+      </div>
+    </div>
+
+    <div class="footer">
+      © 2026 <span>AI LEAD</span> — جميع الحقوق محفوظة
+    </div>
+  </div>
+
+</body>
+</html>

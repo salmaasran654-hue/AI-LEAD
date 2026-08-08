@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>أدوات البرمجة - AI Hub Egypt</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f9f6f5;
+      color: #2d1b1b;
+    }
+    .header {
+      background: #6b1d2b;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .logo { font-size: 2rem; font-weight: bold; color: white; }
+    .logo span { color: #f5c6c6; }
+    .nav a {
+      color: #f5e1e1;
+      text-decoration: none;
+      margin-right: 25px;
+      font-weight: 500;
+    }
+    .nav a:hover { color: white; }
+    .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+    h1 { font-size: 2.8rem; color: #6b1d2b; text-align: center; }
+    .sub { text-align: center; color: #4d3a3a; margin-bottom: 40px; }
+    .tool-card {
+      background: white;
+      border-radius: 24px;
+      padding: 25px 30px;
+      border: 1px solid #f0e6e6;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: 0.2s;
+    }
+    .tool-card:hover { border-color: #6b1d2b; }
+    .tool-card .info h3 { color: #6b1d2b; }
+    .tool-card .info p { color: #4d3a3a; }
+    .tool-card .btn {
+      background: #6b1d2b;
+      color: white;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 40px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .tool-card .btn:hover { background: #4f1520; }
+    .footer {
+      background: #6b1d2b;
+      padding: 20px;
+      text-align: center;
+      color: #f5e1e1;
+      margin-top: 50px;
+    }
+    .footer span { color: #f5c6c6; }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="logo">🤖 AI <span>Hub Egypt</span></div>
+    <div class="nav">
+      <a href="index.html">الرئيسية</a>
+      <a href="favorites.html">المفضلة</a>
+      <a href="reviews.html">التقييمات</a>
+      <a href="login.html">تسجيل الدخول</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <h1>💻 أدوات البرمجة</h1>
+    <p class="sub">أفضل أدوات الذكاء الاصطناعي لمساعدة المطورين</p>
+
+    <div class="tool-card">
+      <div class="info">
+        <h3>GitHub Copilot</h3>
+        <p>مساعد برمجي ذكي لكتابة الأكواد</p>
+      </div>
+      <button class="btn" onclick="window.open('https://github.com/features/copilot', '_blank')">زيارة</button>
+    </div>
+
+    <div class="tool-card">
+      <div class="info">
+        <h3>Tabnine</h3>
+        <p>إكمال الأكواد باستخدام الذكاء الاصطناعي</p>
+      </div>
+      <button class="btn" onclick="window.open('https://www.tabnine.com', '_blank')">زيارة</button>
+    </div>
+
+    <div class="tool-card">
+      <div class="info">
+        <h3>Codeium</h3>
+        <p>مساعد برمجي مجاني ومفتوح المصدر</p>
+      </div>
+      <button class="btn" onclick="window.open('https://codeium.com', '_blank')">زيارة</button>
+    </div>
+  </div>
+
+  <div class="footer">
+    © 2026 <span>AI Hub Egypt</span> — جميع الحقوق محفوظة
+  </div>
+</body>
+</html>

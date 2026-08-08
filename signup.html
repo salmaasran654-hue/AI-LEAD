@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>إنشاء حساب - AI Hub Egypt</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f9f6f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .signup-box {
+      background: white;
+      padding: 50px 40px;
+      border-radius: 30px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      border: 1px solid #f0e6e6;
+    }
+    .signup-box h2 { font-size: 2rem; color: #6b1d2b; }
+    .signup-box p { color: #4d3a3a; margin-bottom: 25px; }
+    .signup-box input {
+      width: 100%;
+      padding: 14px 18px;
+      margin-bottom: 16px;
+      border: 2px solid #e0cfcf;
+      border-radius: 50px;
+      font-size: 1rem;
+      outline: none;
+    }
+    .signup-box input:focus { border-color: #6b1d2b; }
+    .signup-box button {
+      width: 100%;
+      padding: 14px;
+      background: #6b1d2b;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .signup-box button:hover { background: #4f1520; }
+    .signup-box .link { margin-top: 18px; color: #888; }
+    .signup-box .link a { color: #6b1d2b; text-decoration: none; font-weight: 600; }
+    .error { color: #d32f2f; margin-top: 12px; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <div class="signup-box">
+    <h2>✨ حساب جديد</h2>
+    <p>انضم إلى منصة الذكاء الاصطناعي العربية</p>
+    <input type="text" id="name" placeholder="الاسم بالكامل" />
+    <input type="email" id="email" placeholder="البريد الإلكتروني" />
+    <input type="password" id="password" placeholder="كلمة المرور" />
+    <input type="password" id="confirm" placeholder="تأكيد كلمة المرور" />
+    <button id="signupBtn">إنشاء حساب</button>
+    <div id="error" class="error"></div>
+    <div class="link">
+      لديك حساب بالفعل؟ <a href="login.html">تسجيل الدخول</a>
+    </div>
+  </div>
+
+  <script type="importmap">
+    {
+      "imports": {
+        "firebase/app": "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js",
+        "firebase/auth": "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js",
+        "firebase/database": "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js"
+      }
+    }
+  </script>
+
+  <script type="module">
+    import { initializeApp } from "firebase/app";
+    import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+    import { getDatabase, ref, set } from "firebase/database";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAxRBvOUI13kMrtNucBV_43qlaWP6ZkyKQ",
+      authDomain: "ai-hub-egypt-ss.firebaseapp.com",
+      projectId: "ai-hub-egypt-ss",
+      storageBucket: "ai-hub-egypt-ss.firebasestorage.app",
+      messagingSenderId: "918245579159",
+      appId: "1:918245579159:web:dcfd476de1f37d4b8a0cd2",
+      measurementId: "G-JDTJXCQ4VJ"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const database = getDatabase(app);
+
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+    const confirmInput = document.getElementById('confirm');
+    const signupBtn = document.getElementById('signupBtn');
+    const errorDiv = document.getElementById('error');
+
+    signupBtn.addEventListener('click', async () => {
+      const name = nameInput.value.trim();
+      const email = emailInput.value.trim();
+      const password = passwordInput.value.trim();
+      const confirm = confirmInput.value.trim();
+
+      if (!name || !email || !password || !confirm) {
+        errorDiv.textContent = '❌ الرجاء ملء جميع الحقول';
+        return;
+      }
+
+      if (password !== confirm) {
+        errorDiv.textContent = '❌ كلمة المرور غير متطابقة';
+        return;
+      }
+
+      if (password.length < 6) {
+        errorDiv.textContent = '❌ كلمة المرور يجب أن تكون 6 أحرف على الأقل';
+        return;
+      }
+
+      try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+
+        await set(ref(database, 'users/' + user.uid), {
+          name: name,
+          email: email,
+          createdAt: new Date().toISOString()
+        });
+
+        alert('✅ تم إنشاء الحساب بنجاح!');
+        window.location.href = 'dashboard.html';
+      } catch (error) {
+        errorDiv.textContent = '❌ ' + error.message;
+      }
+    });
+  </script>
+</body>
+</html>
