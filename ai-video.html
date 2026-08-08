@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>مولد الفيديوهات التعليمية - AI LEAD</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: #0B1120;
+      color: #FFFFFF;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    #particles-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      background: #0B1120;
+    }
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(37, 99, 235, 0.15);
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .logo {
+      font-size: 2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #2563EB, #8B5CF6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .logo span { font-weight: 300; -webkit-text-fill-color: #94A3B8; }
+    .nav a {
+      color: #94A3B8;
+      text-decoration: none;
+      margin-right: 15px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: 0.3s;
+    }
+    .nav a:hover { color: #38BDF8; }
+    .page-title {
+      text-align: center;
+      padding: 50px 0 20px;
+    }
+    .page-title h1 {
+      font-size: 3rem;
+      font-weight: 800;
+    }
+    .page-title h1 span {
+      background: linear-gradient(135deg, #2563EB, #8B5CF6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .page-title p {
+      color: #94A3B8;
+      font-size: 1.1rem;
+      margin-top: 10px;
+    }
+    .generator-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(37, 99, 235, 0.1);
+      border-radius: 24px;
+      padding: 40px;
+      margin: 30px 0 50px;
+    }
+    .generator-box textarea {
+      width: 100%;
+      padding: 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(37, 99, 235, 0.2);
+      background: rgba(255, 255, 255, 0.05);
+      color: #fff;
+      font-size: 1rem;
+      outline: none;
+      resize: vertical;
+      min-height: 120px;
+    }
+    .generator-box textarea:focus {
+      border-color: #2563EB;
+      box-shadow: 0 0 20px rgba(37, 99, 235, 0.1);
+    }
+    .generator-box button {
+      background: linear-gradient(135deg, #2563EB, #8B5CF6);
+      border: none;
+      padding: 14px 36px;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #fff;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 16px;
+    }
+    .generator-box button:hover {
+      transform: scale(1.04);
+      box-shadow: 0 0 30px rgba(37, 99, 235, 0.3);
+    }
+    .generator-box .result {
+      margin-top: 25px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      border: 1px solid rgba(37, 99, 235, 0.1);
+      display: none;
+    }
+    .generator-box .result.show {
+      display: block;
+    }
+    .generator-box .result .video-placeholder {
+      width: 100%;
+      height: 300px;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #64748B;
+      font-size: 1.2rem;
+    }
+    .footer {
+      border-top: 1px solid rgba(37, 99, 235, 0.08);
+      padding: 25px 0;
+      text-align: center;
+      color: #64748B;
+      font-size: 0.9rem;
+    }
+    .footer span { color: #38BDF8; }
+    @media (max-width: 700px) {
+      .header { flex-direction: column; align-items: center; gap: 12px; }
+      .nav { justify-content: center; flex-wrap: wrap; }
+      .nav a { margin: 0 8px; }
+      .page-title h1 { font-size: 2.2rem; }
+      .generator-box { padding: 25px; }
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="particles-canvas"></canvas>
+
+  <div class="container">
+
+    <div class="header">
+      <div class="logo">AI <span>LEAD</span></div>
+      <div class="nav">
+        <a href="index.html">الرئيسية</a>
+        <a href="courses.html">الدورات</a>
+        <a href="videos.html">الفيديوهات</a>
+        <a href="analyzer.html">تحليل الموقع</a>
+        <a href="about.html">من نحن</a>
+        <a href="contact.html">تواصل</a>
+        <a href="login.html">تسجيل الدخول</a>
+      </div>
+    </div>
+
+    <div class="page-title">
+      <h1>🎬 <span>مولد الفيديوهات التعليمية</span></h1>
+      <p>اكتب موضوع الدرس، وهنولد لك فيديو تعليمي كامل بالصوت والصورة</p>
+    </div>
+
+    <div class="generator-box">
+      <textarea id="topicInput" placeholder="اكتب موضوع الدرس التعليمي... مثال: شرح أساسيات الذكاء الاصطناعي"></textarea>
+      <br />
+      <button onclick="generateVideo()">🚀 توليد الفيديو</button>
+
+      <div class="result" id="resultBox">
+        <h3 style="color: #38BDF8; margin-bottom: 12px;">✅ تم إنشاء الفيديو</h3>
+        <div class="video-placeholder" id="videoPlaceholder">
+          ⏳ جاري تجهيز الفيديو...
+        </div>
+        <p style="color: #94A3B8; margin-top: 12px; font-size: 0.9rem;">
+          🔗 سيظهر رابط التحميل هنا قريباً.
+        </p>
+      </div>
+    </div>
+
+    <div class="footer">
+      © 2026 <span>AI LEAD</span> — جميع الحقوق محفوظة
+    </div>
+
+  </div>
+
+  <script>
+    const canvas = document.getElementById('particles-canvas');
+    const ctx = canvas.getContext('2d');
+    let w, h;
+
+    function resize() {
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener('resize', resize);
+    resize();
+
+    const particles = [];
+
+    for (let i = 0; i < 60; i++) {
+      particles.push({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        size: Math.random() * 2.5 + 1,
+        speedX: (Math.random() - 0.5) * 0.3,
+        speedY: (Math.random() - 0.5) * 0.3,
+        color: `hsl(${Math.random() * 60 + 210}, 80%, 60%)`
+      });
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, w, h);
+
+      particles.forEach(p => {
+        p.x += p.speedX;
+        p.y += p.speedY;
+
+        if (p.x < 0 || p.x > w) p.speedX *= -1;
+        if (p.y < 0 || p.y > h) p.speedY *= -1;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = p.color;
+        ctx.shadowColor = 'rgba(56, 189, 248, 0.2)';
+        ctx.shadowBlur = 15;
+        ctx.fill();
+      });
+
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 120) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(56, 189, 248, ${0.06 * (1 - dist / 120)})`;
+            ctx.lineWidth = 1;
+            ctx.stroke();
+          }
+        }
+      }
+
+      requestAnimationFrame(draw);
+    }
+
+    draw();
+
+    function generateVideo() {
+      const topic = document.getElementById('topicInput').value.trim();
+      const resultBox = document.getElementById('resultBox');
+      const placeholder = document.getElementById('videoPlaceholder');
+
+      if (!topic) {
+        alert('❌ الرجاء كتابة موضوع الدرس');
+        return;
+      }
+
+      resultBox.classList.add('show');
+      placeholder.innerHTML = `
+        <div style="text-align: center;">
+          <div style="font-size: 3rem; margin-bottom: 12px;">🎥</div>
+          <p style="color: #94A3B8;">جاري توليد فيديو عن: <strong style="color: #38BDF8;">"${topic}"</strong></p>
+          <p style="color: #64748B; font-size: 0.9rem; margin-top: 8px;">⏳ يرجى الانتظار...</p>
+        </div>
+      `;
+
+      // محاكاة عملية التوليد (تستبدليها بـ API حقيقي)
+      setTimeout(() => {
+        placeholder.innerHTML = `
+          <div style="text-align: center;">
+            <div style="font-size: 3rem; margin-bottom: 12px;">✅</div>
+            <p style="color: #94A3B8;">تم توليد الفيديو بنجاح</p>
+            <p style="color: #38BDF8; font-size: 0.95rem;">📌 موضوع: "${topic}"</p>
+            <button onclick="alert('🚀 سيتم تفعيل رابط التحميل قريباً')" style="margin-top: 16px; background: #2563EB; border: none; padding: 10px 28px; border-radius: 40px; color: #fff; font-weight: 700; cursor: pointer;">📥 تحميل الفيديو</button>
+          </div>
+        `;
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
