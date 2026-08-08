@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>طلبات بناء المواقع - AI LEAD</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: #0B1120;
+      color: #FFFFFF;
+      line-height: 1.6;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+    #particles-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      background: #0B1120;
+    }
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(37, 99, 235, 0.15);
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .logo {
+      font-size: 2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #2563EB, #8B5CF6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .logo span { font-weight: 300; -webkit-text-fill-color: #94A3B8; }
+    .nav a {
+      color: #94A3B8;
+      text-decoration: none;
+      margin-right: 15px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: 0.3s;
+    }
+    .nav a:hover { color: #38BDF8; }
+    .nav .build-link {
+      color: #38BDF8;
+      border: 1px solid #2563EB;
+      padding: 4px 14px;
+      border-radius: 40px;
+      transition: 0.3s;
+    }
+    .nav .build-link:hover {
+      background: #2563EB;
+      color: #fff;
+    }
+    .page-title {
+      text-align: center;
+      padding: 30px 0 20px;
+    }
+    .page-title h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+    }
+    .page-title h1 span {
+      background: linear-gradient(135deg, #2563EB, #8B5CF6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .page-title p {
+      color: #94A3B8;
+      font-size: 1.1rem;
+      margin-top: 6px;
+    }
+    .stats {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin: 20px 0 25px;
+    }
+    .stat-box {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(37,99,235,0.08);
+      border-radius: 12px;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .stat-box .num {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #38BDF8;
+    }
+    .stat-box .label {
+      color: #94A3B8;
+      font-size: 0.9rem;
+    }
+    .order-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(37,99,235,0.1);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 16px;
+      transition: 0.3s;
+    }
+    .order-card:hover {
+      border-color: #2563EB;
+      transform: translateX(-4px);
+    }
+    .order-card .header {
+      display: flex;
+      justify-content: space-between;
+      color: #94A3B8;
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+      flex-wrap: wrap;
+      gap: 8px;
+      border-bottom: none;
+      padding: 0;
+    }
+    .order-card .header strong { color: #38BDF8; }
+    .order-card .subject { font-size: 1.1rem; font-weight: 700; color: #fff; }
+    .order-card .message { color: #94A3B8; margin-top: 6px; }
+    .order-card .badge {
+      display: inline-block;
+      background: rgba(37,99,235,0.15);
+      color: #38BDF8;
+      padding: 2px 12px;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      margin-top: 8px;
+    }
+    .empty {
+      text-align: center;
+      color: #64748B;
+      padding: 50px 0;
+      font-size: 1.2rem;
+    }
+    .empty .icon { font-size: 4rem; display: block; margin-bottom: 16px; }
+    .refresh-btn {
+      background: #2563EB;
+      color: #fff;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 40px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-bottom: 25px;
+    }
+    .refresh-btn:hover {
+      transform: scale(1.04);
+      box-shadow: 0 0 30px rgba(37,99,235,0.3);
+    }
+    .back { display: inline-block; margin-top: 30px; color: #38BDF8; text-decoration: none; font-weight: 600; }
+    .back:hover { text-decoration: underline; }
+    .footer {
+      border-top: 1px solid rgba(37,99,235,0.08);
+      padding: 25px 0;
+      margin-top: 40px;
+      text-align: center;
+      color: #64748B;
+      font-size: 0.9rem;
+    }
+    .footer span { color: #38BDF8; }
+    .footer a { color: #38BDF8; text-decoration: none; margin: 0 10px; }
+    @media (max-width: 700px) {
+      .header { flex-direction: column; align-items: center; gap: 12px; }
+      .nav { justify-content: center; flex-wrap: wrap; }
+      .nav a { margin: 0 8px; }
+      .page-title h1 { font-size: 2rem; }
+      .order-card .header { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="particles-canvas"></canvas>
+
+  <div class="container">
+
+    <div class="header">
+      <div class="logo">AI <span>LEAD</span></div>
+      <div class="nav">
+        <a href="index.html">الرئيسية</a>
+        <a href="courses.html">الدورات</a>
+        <a href="videos.html">الموارد</a>
+        <a href="analyzer.html">تحليل الموقع</a>
+        <a href="blog.html">المدونة</a>
+        <a href="about.html">من نحن</a>
+        <a href="contact.html">تواصل</a>
+        <a href="ai-ideas.html">💡 أفكار إبداعية</a>
+        <a href="website-builder.html" class="build-link">🚀 بناء مواقع</a>
+        <a href="login.html">تسجيل الدخول</a>
+      </div>
+    </div>
+
+    <div class="page-title">
+      <h1>📋 <span>طلبات بناء المواقع</span></h1>
+      <p>جميع الطلبات التي أرسلها العملاء من صفحة بناء المواقع</p>
+    </div>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 20px;">
+      <div class="stats">
+        <div class="stat-box"><span class="num" id="ordersCount">0</span><span class="label">طلبات</span></div>
+        <div class="stat-box"><span class="num" id="newOrdersCount">0</span><span class="label">جديدة</span></div>
+      </div>
+      <button class="refresh-btn" onclick="loadOrders()">🔄 تحديث</button>
+    </div>
+
+    <div id="ordersContainer"></div>
+
+    <div style="text-align: center;">
+      <a href="website-builder.html" class="back">⬅️ العودة لصفحة بناء المواقع</a>
+    </div>
+
+    <div class="footer">
+      <p>© 2026 <span>AI LEAD</span> — جميع الحقوق محفوظة</p>
+      <p style="margin-top: 8px;">
+        <a href="privacy.html">سياسة الخصوصية</a>
+        <a href="terms.html">شروط الخدمة</a>
+      </p>
+    </div>
+
+  </div>
+
+  <button onclick="window.scrollTo({top:0,behavior:'smooth'})" style="position:fixed;bottom:30px;left:30px;background:#2563EB;color:#fff;border:none;border-radius:50%;width:50px;height:50px;font-size:1.5rem;cursor:pointer;box-shadow:0 0 30px rgba(37,99,235,0.3);z-index:999;">↑</button>
+
+  <script>
+    const canvas = document.getElementById('particles-canvas');
+    const ctx = canvas.getContext('2d');
+    let w, h;
+
+    function resize() {
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener('resize', resize);
+    resize();
+
+    const particles = [];
+
+    for (let i = 0; i < 60; i++) {
+      particles.push({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        size: Math.random() * 2.5 + 1,
+        speedX: (Math.random() - 0.5) * 0.3,
+        speedY: (Math.random() - 0.5) * 0.3,
+        color: `hsl(${Math.random() * 60 + 210}, 80%, 60%)`
+      });
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, w, h);
+
+      particles.forEach(p => {
+        p.x += p.speedX;
+        p.y += p.speedY;
+
+        if (p.x < 0 || p.x > w) p.speedX *= -1;
+        if (p.y < 0 || p.y > h) p.speedY *= -1;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = p.color;
+        ctx.shadowColor = 'rgba(56, 189, 248, 0.2)';
+        ctx.shadowBlur = 15;
+        ctx.fill();
+      });
+
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 120) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(56, 189, 248, ${0.06 * (1 - dist / 120)})`;
+            ctx.lineWidth = 1;
+            ctx.stroke();
+          }
+        }
+      }
+
+      requestAnimationFrame(draw);
+    }
+
+    draw();
+
+    function loadOrders() {
+      const container = document.getElementById('ordersContainer');
+      const ordersCount = document.getElementById('ordersCount');
+      const newOrdersCount = document.getElementById('newOrdersCount');
+
+      const orders = JSON.parse(localStorage.getItem('websiteOrders') || '[]');
+
+      ordersCount.textContent = orders.length;
+
+      const now = new Date();
+      const newOrders = orders.filter(order => {
+        const orderDate = new Date(order.date);
+        const diff = (now - orderDate) / (1000 * 60 * 60);
+        return diff < 24;
+      });
+      newOrdersCount.textContent = newOrders.length;
+
+      if (orders.length === 0) {
+        container.innerHTML = `
+          <div class="empty">
+            <span class="icon">📭</span>
+            لا توجد طلبات حتى الآن
+          </div>
+        `;
+        return;
+      }
+
+      const sortedOrders = [...orders].reverse();
+
+      container.innerHTML = sortedOrders.map((order, index) => `
+        <div class="order-card">
+          <div class="header">
+            <span><strong>${order.name}</strong> · ${order.email}</span>
+            <span>${order.date}</span>
+          </div>
+          <div class="subject">📌 طلب: ${order.siteType} - ${order.pages}</div>
+          <div class="message">
+            📞 ${order.phone}<br />
+            🎨 الألوان: ${order.colors || 'غير محدد'}<br />
+            📝 ${order.notes || 'لا يوجد ملاحظات'}
+          </div>
+          <span class="badge">✅ جديد</span>
+        </div>
+      `).join('');
+    }
+
+    window.onload = loadOrders;
+  </script>
+</body>
+</html>
