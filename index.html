@@ -127,20 +127,27 @@
   <div class="container">
     <h1>📥 <span>صندوق الوارد</span></h1>
 
+    <!-- القائمة العلوية -->
     <div class="nav-links">
       <a href="index.html" class="active">🏠 الرئيسية</a>
+      <a href="courses.html">📚 الدورات</a>
+      <a href="videos.html">📹 الموارد</a>
+      <a href="analyzer.html">📊 تحليل الموقع</a>
+      <a href="blog.html">📝 المدونة</a>
+      <a href="about.html">📖 من نحن</a>
       <a href="contact.html">📬 تواصل</a>
       <a href="ai-ideas.html">💡 أفكار إبداعية</a>
       <a href="login.html">🔐 تسجيل الدخول</a>
     </div>
 
-    <!-- رابط مميز لأفكار إبداعية -->
+    <!-- زر مميز لأفكار إبداعية -->
     <div style="text-align: center;">
       <a href="ai-ideas.html" class="featured-link">💡 جرب مولد الأفكار الإبداعية الآن!</a>
     </div>
 
     <hr class="divider" />
 
+    <!-- إحصائيات -->
     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 20px;">
       <div class="stats">
         <div class="stat-box"><span class="num" id="msgCount">0</span><span class="label">رسائل</span></div>
@@ -149,8 +156,10 @@
       <button class="refresh-btn" onclick="loadMessages()">🔄 تحديث</button>
     </div>
 
+    <!-- عرض الرسائل -->
     <div id="messagesContainer"></div>
 
+    <!-- رجوع -->
     <div style="text-align: center;">
       <a href="contact.html" class="back">⬅️ العودة للتواصل</a>
     </div>
