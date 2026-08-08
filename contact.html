@@ -4,9 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>تواصل معنا - AI LEAD</title>
-  <meta name="description" content="تواصل مع فريق AI LEAD لأي استفسار أو اقتراح." />
-  <meta name="keywords" content="تواصل معنا, اتصل بنا, AI LEAD" />
-  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/869/869636.png" />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -202,11 +199,11 @@
 
     <div class="contact-grid">
       <div class="contact-form">
-        <input type="text" placeholder="الاسم بالكامل" />
-        <input type="email" placeholder="البريد الإلكتروني" />
-        <input type="text" placeholder="الموضوع" />
-        <textarea placeholder="اكتب رسالتك..."></textarea>
-        <button>إرسال</button>
+        <input type="text" placeholder="الاسم بالكامل" id="nameInput" />
+        <input type="email" placeholder="البريد الإلكتروني" id="emailInput" />
+        <input type="text" placeholder="الموضوع" id="subjectInput" />
+        <textarea placeholder="اكتب رسالتك..." id="messageInput"></textarea>
+        <button onclick="sendEmail()">إرسال</button>
       </div>
 
       <div class="contact-info">
@@ -294,6 +291,21 @@
     }
 
     draw();
+
+    function sendEmail() {
+      const name = document.getElementById('nameInput').value.trim();
+      const email = document.getElementById('emailInput').value.trim();
+      const subject = document.getElementById('subjectInput').value.trim();
+      const message = document.getElementById('messageInput').value.trim();
+
+      if (!name || !email || !subject || !message) {
+        alert('❌ الرجاء ملء جميع الحقول');
+        return;
+      }
+
+      const mailtoLink = `mailto:rtificialintelligencewebsite22@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`الاسم: ${name}\nالبريد: ${email}\n\nالرسالة:\n${message}`)}`;
+      window.open(mailtoLink, '_blank');
+    }
   </script>
 </body>
 </html>
